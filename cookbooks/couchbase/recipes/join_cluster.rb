@@ -48,7 +48,7 @@ if cluster_tag and !cluster_tag.empty?
       " #{couchbase_servers[0]}" 
      )
   execute "Joining cluster  #{node[:db_couchbase][:cluster][:tag]}" do
-    command("sleep 20 &&" +
+    command("sleep 20 && " +
       "/opt/couchbase/bin/couchbase-cli server-add" +
       " --server-add=self" +
       " --server-add-username=#{node[:db_couchbase][:cluster][:username]}" +
