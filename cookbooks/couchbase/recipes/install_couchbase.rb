@@ -54,9 +54,7 @@ unless (node[:block_device].nil? or
   end
   
 end
-execute "starting server" do
-  command "/etc/init.d/couchbase-server start && sleep 10"
-    action :run
+service "couchbase-server" do
+  action :start
 end
-
 rightscale_marker :end
