@@ -12,11 +12,9 @@ log("service couchbase-server stop")
 # You should just be able to put 
 # service couchbase stop
 #
-execute "stopping server" do
-   command "/etc/init.d/couchbase-server stop && sleep 15"
-   action :run
+service "couchbase-server" do
+  action :stop
 end
-
 # Or brute force
 #execute "stopping server" do
 #   command "kill -15 `cat "/opt/couchbase/var/lib/couchbase/couchbase-server.pid"`
