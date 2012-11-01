@@ -7,13 +7,15 @@
 
 # Stop couchbase
 action :stop do
-  bash do
+  bash "stop" do
+    flags "-ex" 
+    code <<-EOH
     #stop is broken
     #service couchbase-server stop
     
     kill -15 `cat "/opt/couchbase/var/lib/couchbase/couchbase-server.pid"`
     pkill -15 -u 101
-    
+   EOH 
   end
 end
 
