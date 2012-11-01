@@ -9,18 +9,9 @@ rightscale_marker :begin
 
 log("service couchbase-server stop")
 
-# You should just be able to put 
-# service couchbase stop
-#
-service "couchbase-server" do
+couchbase do
   action :stop
 end
-# Or brute force
-#execute "stopping server" do
-#   command "kill -15 `cat "/opt/couchbase/var/lib/couchbase/couchbase-server.pid"`
-#pkill -15 -u 101"
-#   action :run
-# end
 
 rightscale_marker :end
 

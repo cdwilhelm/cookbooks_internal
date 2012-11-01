@@ -28,33 +28,4 @@ package "couchbase-server" do
   action :install
 end
 
-log "relocating #{couchbase_package}"
-
-  execute "stopping server" do
-    command "/etc/init.d/couchbase-server stop && sleep 15"
-    action :run
-  end
-
-unless (node[:block_device].nil? or
-        node[:block_device][:devices].nil? or
-        node[:block_device][:devices][:device1].nil? or
-        node[:block_device][:devices][:device1][:mount_point].nil?)
-  mount_point = node[:block_device][:devices][:device1][:mount_point]
-
-  log "configuring to mount_point: #{mount_point}"
-
-  execute "moving directory" do
-    command "mv /opt/couchbase #{mount_point}"
-    action :run
-  end
-
-  execute "symlinking directory" do
-    command "ln -s #{mount_point}/couchbase /opt/"
-    action :run
-  end
-  
-end
-service "couchbase-server" do
-  action :start
-end
 rightscale_marker :end
