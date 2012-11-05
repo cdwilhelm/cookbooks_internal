@@ -19,5 +19,6 @@ end
 
 # Start couchbase
 action :start do
-  service couchbase-server stop
+  service couchbase-server
+  action  :stop
 end
