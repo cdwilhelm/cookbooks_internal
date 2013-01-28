@@ -146,7 +146,7 @@
     "glusterfs::server_handle_tag_updates": "Remote recipe intended to be called by glusterfs::server_{create,join}_cluster",
     "glusterfs::server_handle_detach_request": "Remote recipe intended to be called by glusterfs::server_decommission",
     "glusterfs::client_mount_volume": "Runs mount(8) with `-t glusterfs' option to mount glusterfs",
-    "glusterfs::sync_volumes": "Syncronizes mount points in the pool using unison",
+    "glusterfs::sync_volumes": "Syncronizes mount points in the pool using unison"
   },
   "version": "0.0.2"
 }
