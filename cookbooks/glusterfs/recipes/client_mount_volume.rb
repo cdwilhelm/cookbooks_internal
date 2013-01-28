@@ -14,7 +14,7 @@ MOUNT_POINT  = node[:glusterfs][:client][:mount_point]
 # tags to search for (Attributes)
 TAG_VOLUME   = node[:glusterfs][:tag][:volume]
 
-node[:glusterfs][:volume_names].each do |volume|
+node[:glusterfs][:volume_pool].each do |volume|
   VOL_NAME = volume
 
   # find all servers providing the volume we need

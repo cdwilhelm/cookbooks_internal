@@ -19,6 +19,7 @@ recipe "glusterfs::server_handle_probe_request", "Remote recipe intended to be c
 recipe "glusterfs::server_handle_tag_updates", "Remote recipe intended to be called by glusterfs::server_{create,join}_cluster"
 recipe "glusterfs::server_handle_detach_request", "Remote recipe intended to be called by glusterfs::server_decommission"
 recipe "glusterfs::client_mount_volume", "Runs mount(8) with `-t glusterfs' option to mount glusterfs"
+recipe "glusterfs::sync_volumes", "Syncronizes mount points in the pool using unison"
 
 attribute "glusterfs/server/volume_type",
     :display_name => "Volume Type",

@@ -13,6 +13,9 @@ when 'ubuntu'
   log "===> Installing nfs-common"
   package "nfs-common"
 
+  log "===> Installing unison"
+  package "unison"
+
   log "===> Installing glusterfs package"
   cookbook_file "/tmp/#{node[:glusterfs][:client][:pkg_name]}" do
     source node[:glusterfs][:client][:pkg_name]
@@ -26,6 +29,7 @@ when 'ubuntu'
 when 'centos'
   package "glusterfs"       # from epel
   package "glusterfs-fuse"  #
+  package "unison"
 else
   raise "Unsupported platform '#{node[:platform]}'"
 end
