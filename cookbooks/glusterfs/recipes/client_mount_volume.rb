@@ -67,7 +67,7 @@ node[:glusterfs][:volume_pool].each do |volume|
 
   # mount remote filesystem
   log "===> Mounting GlusterFS volume"
-  bash "mount_glusterfs" do
+  bash "mount.glusterfs" do
     user "root"
     code <<-EOF
       opts=

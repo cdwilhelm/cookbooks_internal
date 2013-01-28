@@ -62,6 +62,7 @@
       "required": "required",
       "recipes": [
         "glusterfs::default",
+        "glusterfs::sync_volumes",
         "glusterfs::client_mount_volume"
       ],
       "choice": [
@@ -110,6 +111,7 @@
       "default": "/mnt/ephemeral/glusterfs",
       "recipes": [
         "glusterfs::default",
+        "glusterfs::sync_volumes",
         "glusterfs::client_mount_volume"
       ],
       "choice": [
