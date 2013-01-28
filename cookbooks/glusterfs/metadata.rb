@@ -40,6 +40,13 @@ attribute "glusterfs/volume_name",
                        "glusterfs::server_join_cluster",
                        "glusterfs::client_mount_volume" ]
 
+attribute "glusterfs/volume_name_2",
+    :display_name => "Volume Name 2",
+    :description  => "The name of the GlusterFS volume. Servers are tagged with this name and trusted pools are keyed off this name, meaning everyone who shares the same name will become part of the same pool/volume",
+    :required     => "required",
+    :recipes      => [ "glusterfs::default",
+                       "glusterfs::client_mount_volume_2" ]
+
 attribute "glusterfs/server/storage_path",
     :display_name => "Storage Path",
     :description  => "The directory path to be used as a brick and added to the GlusterFS volume",
@@ -74,3 +81,18 @@ attribute "glusterfs/client/mount_options",
     :recipes      => [ "glusterfs::default",
                        "glusterfs::client_mount_volume" ]
 
+attribute "glusterfs/client/mount_point_2",
+    :display_name => "Mount point 2",
+    :description  => "(Client only) The directory path where the GlusterFS volume should be mounted (e.g., /mnt/storage).",
+    :type         => "string",
+    :required     => "recommended",
+    :default      => "/mnt/ephemeral/glusterfs",
+    :recipes      => [ "glusterfs::default",
+                       "glusterfs::client_mount_volume_2" ]
+
+attribute "glusterfs/client/mount_options_2",
+    :display_name => "Mount Options 2",
+    :description  => "(Client only) Extra options to be passed to the mount command",
+    :required     => "optional",
+    :recipes      => [ "glusterfs::default",
+                       "glusterfs::client_mount_volume_2" ]
