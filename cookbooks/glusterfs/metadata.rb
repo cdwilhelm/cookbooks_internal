@@ -46,7 +46,6 @@ attribute "glusterfs/volume_pool",
     :description  => "The names of the GlusterFS volumes. Servers are tagged with this name and trusted pools are keyed off this name, meaning everyone who shares the same name will become part of the same pool/volume",
     :required     => "required",
     :recipes      => [ "glusterfs::default",
-                       "glusterfs::sync_volumes",
                        "glusterfs::client_mount_volume" ]
 
 attribute "glusterfs/server/storage_path",
@@ -74,7 +73,6 @@ attribute "glusterfs/client/mount_point",
     :required     => "recommended",
     :default      => "/mnt/ephemeral/glusterfs",
     :recipes      => [ "glusterfs::default",
-                       "glusterfs::sync_volumes",
                        "glusterfs::client_mount_volume" ]
 
 attribute "glusterfs/client/mount_options",
