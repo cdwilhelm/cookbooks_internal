@@ -8,9 +8,24 @@ Chef::Log.info "===> Syncronizing volumes"
 
 CMD_LOG = "/tmp/gluster.out.#{$$}"
 
+TAG_VOLUME   = node[:glusterfs][:tag][:volume]
+
+r = server_collection "gluster_mounts" do
+  tags "glusterfs_server:mounted=true"
+  action :nothing
+end
+r.run_action(:load)
+
+
 cmd = "unison -auto -silent"
-node[:glusterfs][:volume_pool].each do |volume|
-  cmd += " #{node[:glusterfs][:client][:mount_point]}/#{volume}"
+
+node[:server_collection]["gluster_mounts"].each do |id, tags|
+  ip_tag = tags.detect { |i| i =~ /^server:public_ip_0=/ }
+  ip = ip_tag.gsub(/^.*=/, '')
+  mount_tag = tags.detect { |i| i =~ /glusterfs_server:mount_point=/ }
+  mount = mount_tag.gsub(/^.*=/, '')
+  Chef::Log.info "===> Found server #{ip} mount #{mount}"
+  cmd += " ssh://#{ip}#{mount}"
 end
 
 system "#{cmd} &> #{CMD_LOG}"

@@ -67,7 +67,7 @@ node[:glusterfs][:volume_pool].each do |volume|
 
   # mount remote filesystem
   log "===> Mounting GlusterFS volume"
-  bash "mount.glusterfs" do
+  bash "mount_glusterfs" do
     user "root"
     code <<-EOF
       opts=
@@ -75,6 +75,14 @@ node[:glusterfs][:volume_pool].each do |volume|
       mount -t glusterfs $opts #{glusterfs_ip}:/#{VOL_NAME} #{MOUNT_POINT}/#{VOL_NAME} 
     EOF
     not_if "/bin/grep -qw '#{MOUNT_POINT}/#{VOL_NAME}' /proc/mounts"
+  end
+
+  right_link_tag "#{TAG_MOUNTED}=true" do
+    action :publish
+  end
+
+  right_link_tag "#{TAG_MOUNT}=#{MOUNT_POINT}/#{VOL_NAME}" do
+    action :publish
   end
 
 end
