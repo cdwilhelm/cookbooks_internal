@@ -12,7 +12,9 @@ MOUNT_OPTS   = node[:glusterfs][:client][:mount_options]
 MOUNT_POINT  = node[:glusterfs][:client][:mount_point]
 
 # tags to search for (Attributes)
-TAG_VOLUME   = node[:glusterfs][:tag][:volume]
+TAG_VOLUME    = node[:glusterfs][:tag][:volume]
+TAG_MOUNT     = node[:glusterfs][:tag][:mount]
+TAG_MOUNTED   = node[:glusterfs][:tag][:mounted]
 
 node[:glusterfs][:volume_pool].each do |volume|
   VOL_NAME = volume
