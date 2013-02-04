@@ -41,13 +41,6 @@ attribute "glusterfs/volume_name",
                        "glusterfs::server_join_cluster",
                        "glusterfs::client_mount_volume" ]
 
-attribute "glusterfs/volume_pool",
-    :display_name => "Volume Pool",
-    :description  => "The names of the GlusterFS volumes. Servers are tagged with this name and trusted pools are keyed off this name, meaning everyone who shares the same name will become part of the same pool/volume",
-    :required     => "required",
-    :recipes      => [ "glusterfs::default",
-                       "glusterfs::client_mount_volume" ]
-
 attribute "glusterfs/server/storage_path",
     :display_name => "Storage Path",
     :description  => "The directory path to be used as a brick and added to the GlusterFS volume",
