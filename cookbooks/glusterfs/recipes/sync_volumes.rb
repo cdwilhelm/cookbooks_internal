@@ -26,14 +26,15 @@ node[:server_collection]["gluster_mounts"].each do |id, tags|
   mount_tag = tags.detect { |i| i =~ /#{TAG_MOUNT}=/ }
   mount = mount_tag.gsub(/^.*=/, '')
   if ip == node[:cloud][:public_ips][0]
-    Chef::Log.info "===> Added local mount #{mount}"
+    log "===> Added local mount #{mount}"
     cmd += " #{mount}"
   else
-    Chef::Log.info "===> Found server #{ip} mount #{mount}"
+    log "===> Found server #{ip} mount #{mount}"
     cmd += " ssh://#{ip}#{mount}"
   end
 end
 
+log "running #{cmd}"
 system "#{cmd} &> #{CMD_LOG}"
 
 rightscale_marker :end
