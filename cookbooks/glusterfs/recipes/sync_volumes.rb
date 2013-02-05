@@ -30,7 +30,7 @@ node[:server_collection]["gluster_mounts"].each do |id, tags|
     cmd += " #{mount}"
   else
     log "===> Found server #{ip} mount #{mount}"
-    cmd += " ssh://#{ip}#{mount}"
+    cmd += " ssh://#{ip}/#{mount}"
   end
 end
 
