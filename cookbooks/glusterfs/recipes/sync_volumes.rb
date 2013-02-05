@@ -35,6 +35,6 @@ node[:server_collection]["gluster_mounts"].each do |id, tags|
 end
 
 log "running #{cmd}"
-system "#{cmd} &> #{CMD_LOG}"
+log `#{cmd} &> #{CMD_LOG}`
 
 rightscale_marker :end
