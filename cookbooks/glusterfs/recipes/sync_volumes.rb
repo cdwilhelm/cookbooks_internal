@@ -18,7 +18,7 @@ end
 r.run_action(:load)
 
 
-cmd = "unison -auto"
+cmd = "unison -auto -silent"
 
 node[:server_collection]["gluster_mounts"].each do |id, tags|
   ip_tag = tags.detect { |i| i =~ /^server:public_ip_0=/ }
