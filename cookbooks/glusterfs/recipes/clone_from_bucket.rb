@@ -11,7 +11,7 @@ BUCKET_NAME = node[:glusterfs][:server][:bucket_name]
 objects = Bucket.objects(BUCKET_NAME);
 
 objects.each do |file|
-  file.path
+  log file.path
 end
 
 rightscale_marker :end
