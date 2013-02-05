@@ -20,6 +20,28 @@ recipe "glusterfs::server_handle_tag_updates", "Remote recipe intended to be cal
 recipe "glusterfs::server_handle_detach_request", "Remote recipe intended to be called by glusterfs::server_decommission"
 recipe "glusterfs::client_mount_volume", "Runs mount(8) with `-t glusterfs' option to mount glusterfs"
 recipe "glusterfs::sync_volumes", "Syncronizes mount points in the pool using unison"
+recipe "glusterfs::clone_from_bucket", "Pulls all the files from the s3 bucket to a specified path"
+
+attribute "glusterfs/server/aws_access_key_id",
+    :display_name => "Access Key ID",
+    :description  => "Amazon AWS Access Key ID",
+    :required     => "required",
+    :recipes      => [ "glusterfs::default",
+                       "glusterfs::clone_from_bucket" ]
+
+attribute "glusterfs/server/aws_access_key_secret",
+    :display_name => "Access Key Secret",
+    :description  => "Amazon AWS Access Key Secret",
+    :required     => "required",
+    :recipes      => [ "glusterfs::default",
+                       "glusterfs::clone_from_bucket" ]
+
+attribute "glusterfs/server/bucket_name",
+    :display_name => "S3 bucket",
+    :description  => "S3 Bucket Name",
+    :required     => "required",
+    :recipes      => [ "glusterfs::default",
+                       "glusterfs::clone_from_bucket" ]
 
 attribute "glusterfs/server/volume_type",
     :display_name => "Volume Type",

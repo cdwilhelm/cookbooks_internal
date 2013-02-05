@@ -56,6 +56,45 @@
       "calculated": false,
       "type": "string"
     },
+    "glusterfs/server/aws_access_key_id": {
+      "display_name": "Aws Key ID",
+      "description": "the Access Key ID for AWS",
+      "required": "required",
+      "recipes": [
+        "glusterfs::default",
+        "glusterfs::clone_from_bucket"
+      ],
+      "choice": [
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "glusterfs/server/aws_access_key_secret": {
+      "display_name": "Aws Key Secret",
+      "description": "the Access Key Secret for AWS",
+      "required": "required",
+      "recipes": [
+        "glusterfs::default",
+        "glusterfs::clone_from_bucket"
+      ],
+      "choice": [
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "glusterfs/server/bucket_name": {
+      "display_name": "S3 Bucket",
+      "description": "S3 Bucket Name",
+      "required": "required",
+      "recipes": [
+        "glusterfs::default",
+        "glusterfs::clone_from_bucket"
+      ],
+      "choice": [
+      ],
+      "calculated": false,
+      "type": "string"
+    },
     "glusterfs/server/storage_path": {
       "display_name": "Storage Path",
       "description": "The directory path to be used as a brick and added to the GlusterFS volume",
@@ -133,6 +172,7 @@
     "glusterfs::server_handle_detach_request": "Remote recipe intended to be called by glusterfs::server_decommission",
     "glusterfs::client_mount_volume": "Runs mount(8) with `-t glusterfs' option to mount glusterfs",
     "glusterfs::sync_volumes": "Syncronizes mount points in the pool using unison"
+    "glusterfs::clone_from_bucket": "Pulls all the files from the s3 bucket to a specified path"
   },
   "version": "0.0.2"
 }
