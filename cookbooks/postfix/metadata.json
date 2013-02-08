@@ -1,0 +1,89 @@
+{
+  "name": "postfix",
+  "description": "Postfix recipes",
+  "long_description": "",
+  "maintainer": "SchoolSpring.com",
+  "maintainer_email": "devteam@schoolspring.com",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+    "sys": ">= 0.0.0",
+    "repo": ">= 0.0.0",
+    "app_php": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "postfix/destinations": {
+      "display_name": "Postfix Destinations",
+      "description": "The list of domains that are delivered via the $local_transport mail delivery transport. By default this is the Postfix local(8) delivery agent which looks up all recipients in /etc/passwd and /etc/aliases. The SMTP server validates recipient addresses with $local_recipient_maps and rejects non-existent recipients. See also the local domain class in the ADDRESS_CLASS_README file.  
+The default mydestination value specifies names for the local machine only. On a mail domain gateway, you should also include $mydomain.  
+The $local_transport delivery method is also selected for mail addressed to user@[the.net.work.address] of the mail system (the IP addresses specified with the inet_interfaces and proxy_interfaces parameters).",
+      "required": "required",
+      "recipes": [
+        "postfix::configure"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "postfix/networks": {
+      "display_name": "Postfix Networks",
+      "description": 'The list of "trusted" remote SMTP clients that have more privileges than "strangers".',
+      "required": "required",
+      "recipes": [
+        "postfix::configure"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "postfix/repository": {
+      "display_name": "Postfix Repository URL",
+      "description": "Repository url for mailscripts",
+      "required": "required",
+      "recipes": [
+        "postfix::clone_mailscripts"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "postfix/deploy_dir": {
+      "display_name": "Deployment Directory",
+      "description": "Path of where to deploy the scripts",
+      "required": "optional",
+      "default": "/usr/local/share/mailscripts",
+      "recipes": [
+        "postfix::clone_mailscripts"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "postfix/users": {
+      "display_name": "A list of user accounts (JSON)",
+      "description": 'A well formed JSON array: {"username":{"option_name":"option_value"},"username2"...}',
+      "required": "required",
+      "recipes": [
+        "postfix::add_user"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "postfix::add_user": "Adds a set of users",
+    "postfix::clone_mailscripts": "Clones mailscript repository",
+    "postfix::configure": "Configures Postfix",
+    "postfix::restart": "Restarts Postfix"
+  },
+  "version": "0.0.1"
+}
