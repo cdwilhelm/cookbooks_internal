@@ -75,7 +75,7 @@ The $local_transport delivery method is also selected for mail addressed to user
       ],
       "calculated": false,
       "type": "string"
-    },
+    }
   },
   "groupings": {
   },
