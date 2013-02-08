@@ -28,9 +28,9 @@ myhostname = schoolspring.com
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
 myorigin = /etc/mailname
-mydestination = <%= @params[:destinations] %>
+mydestination = <%= @destinations %>
 relayhost =.
-mynetworks = <%= @params[:networks] %>
+mynetworks = <%= @networks %>
 mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = all
