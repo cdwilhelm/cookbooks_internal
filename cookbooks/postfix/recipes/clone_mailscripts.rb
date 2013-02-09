@@ -1,9 +1,8 @@
 rightscale_marker :begin
 
-repo "mailscripts" do
+repo "default" do
   destination node[:postfix][:deploy_dir]
   action :pull
-  app_user node[:postfix][:user]
   repository node[:postfix][:repository]
   persist false
 end
