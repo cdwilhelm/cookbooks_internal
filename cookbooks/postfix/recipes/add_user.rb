@@ -2,7 +2,7 @@ require 'json'
 
 rightscale_marker :begin
 
-users = JSON.decode(node[:postfix][:users])
+users = JSON.parse(node[:postfix][:users])
 users.each do | username, options |
   if v.has_key?("shell")
     shell = "-s #{v['shell']}"
