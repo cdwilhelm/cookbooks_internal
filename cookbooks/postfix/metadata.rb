@@ -5,13 +5,13 @@ description      "Postfix Recipes"
 version          "0.0.1"
 
 depends "repo"
-depends "app_php"
+depends "app"
 depends "sys"
 
-recipe "glusterfs::add_user", "Adds a set of users"
-recipe "glusterfs::clone_mailscripts", "Clones mailscript repository"
-recipe "glusterfs::configure", "Configures Postfix"
-recipe "glusterfs::restart", "Restarts Postfix"
+recipe "postfix::add_user", "Adds a set of users"
+recipe "postfix::clone_mailscripts", "Clones mailscript repository"
+recipe "postfix::configure", "Configures Postfix"
+recipe "postfix::restart", "Restarts Postfix"
 
 attribute "postfix/destinations",
     :display_name => "Postfix Destinations",

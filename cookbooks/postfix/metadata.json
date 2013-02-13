@@ -10,7 +10,7 @@
   "dependencies": {
     "sys": ">= 0.0.0",
     "repo": ">= 0.0.0",
-    "app_php": ">= 0.0.0"
+    "app": ">= 0.0.0"
   },
   "recommendations": {
   },
