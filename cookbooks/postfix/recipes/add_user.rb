@@ -4,7 +4,7 @@ rightscale_marker :begin
 
 users = JSON.parse(node[:postfix][:users])
 users.each do | username, options |
-  if v.has_key?("shell")
+  if options.has_key?("shell")
     shell = "-s #{v['shell']}"
   else
     shell = "-s /sbin/nologin"
@@ -21,8 +21,5 @@ users.each do | username, options |
     )
   end
 end
-
-
-include_recipe "postfix::restart"
 
 rightscale_marker :end
