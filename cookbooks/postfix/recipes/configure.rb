@@ -8,6 +8,5 @@ template "/etc/postfix/main.cf" do
   )
 end
 
-include_recipe "postfix::restart"
 
 rightscale_marker :end

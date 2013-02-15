@@ -10,7 +10,7 @@ users.each do | username, options |
     shell = "-s /sbin/nologin"
   end
   execute "useradd" do
-   command "useradd #{shell} #{username}"
+   command "useradd -m #{shell} #{username}"
    creates "/home/#{username}"
   end
   template "/home/#{username}/.forward" do
