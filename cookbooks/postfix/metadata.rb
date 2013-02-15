@@ -34,11 +34,41 @@ attribute "postfix/deploy_dir",
     :default      => "/usr/local/share/mailscripts",
     :recipes      => [ "postfix::clone_mailscripts" ]
 
-attribute "postfix/repository",
-    :display_name => "Deployment Repository URL",
-    :description  => 'Repository url or mailscripts',
+attribute "postfix/gc_username",
+    :display_name => "Globalclassroom.com username",
+    :description  => 'username for Globalclassroom',
     :required     => "required",
-    :recipes      => [ "postfix::clone_mailscripts" ]
+    :recipes      => [ "postfix::configure" ]
+
+attribute "postfix/gc_password",
+    :display_name => "Globalclassroom.com password",
+    :description  => 'password for Globalclassroom',
+    :required     => "required",
+    :recipes      => [ "postfix::configure" ]
+
+attribute "postfix/db_name",
+    :display_name => "Database name",
+    :description  => 'Name of the mysql database for mailscripts',
+    :required     => "required",
+    :recipes      => [ "postfix::configure" ]
+
+attribute "postfix/db_host",
+    :display_name => "Database hostname",
+    :description  => 'Hostname of the mysql database for mailscripts',
+    :required     => "required",
+    :recipes      => [ "postfix::configure" ]
+
+attribute "postfix/db_user",
+    :display_name => "Database username",
+    :description  => 'username for the mysql database for mailscripts',
+    :required     => "required",
+    :recipes      => [ "postfix::configure" ]
+
+attribute "postfix/db_pass",
+    :display_name => "Database password",
+    :description  => 'password for the mysql database for mailscripts',
+    :required     => "required",
+    :recipes      => [ "postfix::configure" ]
 
 attribute "postfix/users",
     :display_name => "A list of user accounts (JSON)",

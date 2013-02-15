@@ -43,12 +43,62 @@
       "calculated": false,
       "type": "string"
     },
-    "postfix/repository": {
-      "display_name": "Postfix Repository URL",
-      "description": "Repository url for mailscripts",
+    "postfix/gc_username": {
+      "display_name": "Globalclassroom.com username",
+      "description": "username for Globalclassroom",
       "required": "required",
       "recipes": [
-        "postfix::clone_mailscripts"
+        "postfix::configure"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "postfix/gc_password": {
+      "display_name": "Globalclassroom.com password",
+      "description": "password for Globalclassroom",
+      "required": "required",
+      "recipes": [
+        "postfix::configure"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "postfix/db_name": {
+      "display_name": "Database name",
+      "description": "Name of the mysql database for mailscripts",
+      "required": "required",
+      "recipes": [
+        "postfix::configure"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "postfix/db_host": {
+      "display_name": "Database hostname",
+      "description": "hostname of the mysql database for mailscripts",
+      "required": "required",
+      "recipes": [
+        "postfix::configure"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "postfix/db_user": {
+      "display_name": "Database username",
+      "description": "username for the mysql database for mailscripts",
+      "required": "required",
+      "recipes": [
+        "postfix::configure"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "postfix/db_pass": {
+      "display_name": "Database password",
+      "description": "password for the mysql database for mailscripts",
+      "required": "required",
+      "recipes": [
+        "postfix::configure"
       ],
       "calculated": false,
       "type": "string"
@@ -59,7 +109,7 @@
       "required": "optional",
       "default": "/usr/local/share/mailscripts",
       "recipes": [
-        "postfix::clone_mailscripts"
+        "postfix::configure"
       ],
       "calculated": false,
       "type": "string"
@@ -79,7 +129,6 @@
   },
   "recipes": {
     "postfix::add_user": "Adds a set of users",
-    "postfix::clone_mailscripts": "Clones mailscript repository",
     "postfix::configure": "Configures Postfix",
     "postfix::restart": "Restarts Postfix"
   },

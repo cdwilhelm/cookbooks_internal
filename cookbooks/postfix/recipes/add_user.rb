@@ -20,6 +20,10 @@ users.each do | username, options |
       :username => username
     )
   end
+  cookbook_file "#{node[:postfix][:deploy_dir]}/#{username}.pl" do
+    source "#{username}.pl"
+    mode "0644"
+  end
 end
 
 rightscale_marker :end
