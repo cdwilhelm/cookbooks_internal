@@ -16,7 +16,7 @@ template "#{node[:postfix][:deploy_dir]}/datasource.pl" do
     :database_name => node[:postfix][:db_name],
     :database_hostname => node[:postfix][:db_host],
     :database_username => node[:postfix][:db_user],
-    :database_password => node[:postfix][:db_pass],
+    :database_password => node[:postfix][:db_pass]
   )
 end
 
