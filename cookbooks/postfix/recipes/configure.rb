@@ -11,7 +11,7 @@ end
 
 directory node[:postfix][:deploy_dir] do
   owner "nobody"
-  group "nobody"
+  group "root"
   mode 00755
   action :create
 end
