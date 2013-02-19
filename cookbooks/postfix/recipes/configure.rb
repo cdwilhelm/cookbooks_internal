@@ -8,6 +8,14 @@ template "/etc/postfix/main.cf" do
   )
 end
 
+
+directory node[:postfix][:deploy_dir] do
+  owner "nobody"
+  group "nobody"
+  mode 00755
+  action :create
+end
+
 template "#{node[:postfix][:deploy_dir]}/datasource.pl" do
   source "datasource.pl.erb"
   variables(
