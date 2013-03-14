@@ -400,6 +400,8 @@ module RightScale
 
     def wait_for_attachment(device)
       success=false
+      STDERR.puts "device said #{device}";
+      STDERR.puts YAML::dump(device)
       3000.times do |attempt|  
         if File.blockdev?(device)
           success=true
