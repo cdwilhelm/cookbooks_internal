@@ -370,6 +370,7 @@ module RightScale
       body = RestClient.put @api_url+"/attach_ebs_volume.js",params
       json = JSON.load(body)
       STDERR.puts "Attach VOLUME: #{vol_id}"
+      STDERR.puts json
       json
     rescue => e
       display_exception(e, "attach_volume(#{vol_id}, #{device})")
