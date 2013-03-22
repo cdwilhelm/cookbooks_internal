@@ -12,14 +12,6 @@ ruby_block "easy_install -U celery-with-redis" do
   end
 end
 
-log "===> daemonizing celery"
-cookbook_file "/etc/init.d/celeryd" do
-  source "celeryd"
-  owner "root"
-  group "root"
-  mode "0755"
-end
-
 log "===> Installing amqp"
 ruby_block "AMQP" do
   block do
