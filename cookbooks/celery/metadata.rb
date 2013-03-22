@@ -4,6 +4,8 @@ license          "Apache 2.0"
 description      "Celery recipes" 
 version          "0.0.1"
 
+depends "sys"
+
 recipe "celery::default", "Installs and configures Celery and AMQP"
 recipe "celery::start_celery", "Starts celery daemon"
 recipe "cllery::stop_celery", "Stopscelery daemon"
