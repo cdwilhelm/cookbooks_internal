@@ -1,0 +1,55 @@
+{
+  "name": "celery",
+  "description": "Celery recipes",
+  "long_description": "",
+  "maintainer": "School Spring, Inc.",
+  "maintainer_email": "devteam@schoolspring.com",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "celery/redis_hostname": {
+      "display_name": "Redis Hostname",
+      "description": "The hostname of the local redis server",
+      "required": "required",
+      "recipes": [
+        "celery::default"
+      ],
+      "choice": [
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "celery/redis_password": {
+      "display_name": "Redis Password",
+      "description": "The password for the local redis server",
+      "recipes": [
+        "celery::default"
+      ],
+      "choice": [
+      ],
+      "calculated": false,
+      "type": "string"
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "celery::default": "Installs celery and amqp",
+    "celery::start_celery": "Starts celery daemon",
+    "celery::stop_celery": "Stops celery daemon"
+  },
+  "version": "0.0.1"
+}
