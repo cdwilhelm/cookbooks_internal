@@ -3,7 +3,7 @@ rightscale_marker :begin
 log "===> Installing python-pip"
 package "python-pip"
 package "python-dev"
-package "php-dev"
+package "php5-dev"
 
 log "===> Installing celery"
 ruby_block "easy_install -U celery-with-redis" do
