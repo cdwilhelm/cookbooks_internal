@@ -27,7 +27,7 @@
       "required": "required",
       "choice": [],
       "recipes": [
-        "coldfusion::install",
+        "coldfusion::install"
       ],
       "calculated": false,
       "type": "string"
@@ -38,7 +38,7 @@
       "required": "required",
       "choice": [],
       "recipes": [
-        "coldfusion::install",
+        "coldfusion::install"
       ],
       "calculated": false,
       "type": "string"
@@ -49,7 +49,7 @@
       "required": "required",
       "choice": [],
       "recipes": [
-        "coldfusion::install",
+        "coldfusion::install"
       ],
       "calculated": false,
       "type": "string"
@@ -60,7 +60,7 @@
       "required": "required",
       "choice": [],
       "recipes": [
-        "coldfusion::install",
+        "coldfusion::install"
       ],
       "calculated": false,
       "type": "string"
@@ -71,7 +71,7 @@
       "required": "required",
       "choice": [],
       "recipes": [
-        "coldfusion::install",
+        "coldfusion::install"
       ],
       "calculated": false,
       "type": "string"
@@ -82,7 +82,7 @@
       "required": "required",
       "choice": [],
       "recipes": [
-        "coldfusion::install",
+        "coldfusion::install"
       ],
       "calculated": false,
       "type": "string"
@@ -93,7 +93,7 @@
       "required": "required",
       "choice": [],
       "recipes": [
-        "coldfusion::install",
+        "coldfusion::install"
       ],
       "calculated": false,
       "type": "string"
@@ -104,7 +104,7 @@
       "required": "required",
       "choice": [],
       "recipes": [
-        "coldfusion::install",
+        "coldfusion::install"
       ],
       "calculated": false,
       "type": "string"
@@ -115,7 +115,7 @@
       "required": "required",
       "choice": [],
       "recipes": [
-        "coldfusion::install",
+        "coldfusion::install"
       ],
       "calculated": false,
       "type": "string"
@@ -126,7 +126,7 @@
       "required": "required",
       "choice": [],
       "recipes": [
-        "coldfusion::install",
+        "coldfusion::install"
       ],
       "calculated": false,
       "type": "string"
@@ -137,7 +137,7 @@
       "required": "required",
       "choice": [],
       "recipes": [
-        "coldfusion::install",
+        "coldfusion::install"
       ],
       "calculated": false,
       "type": "string"
@@ -148,7 +148,7 @@
       "required": "required",
       "choice": [],
       "recipes": [
-        "coldfusion::install",
+        "coldfusion::install"
       ],
       "calculated": false,
       "type": "string"
@@ -159,18 +159,7 @@
       "required": "required",
       "choice": [],
       "recipes": [
-        "coldfusion::install",
-      ],
-      "calculated": false,
-      "type": "string"
-    },
-    "coldfusion/application": {
-      "display_name": "Application name (ssv2)",
-      "description": "Application name (ssv2)",
-      "required": "required",
-      "choice": [],
-      "recipes": [
-        "coldfusion::install",
+        "coldfusion::install"
       ],
       "calculated": false,
       "type": "string"
@@ -181,11 +170,44 @@
       "required": "required",
       "choice": [],
       "recipes": [
-        "coldfusion::install",
+        "coldfusion::install"
       ],
       "calculated": false,
       "type": "string"
-    }
+    },
+    "coldfusion/application": {
+      "display_name": "Application name (ssv2)",
+      "description": "Application name (ssv2)",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "coldfusion/redis/hostname": {
+      "display_name": "Redis Hostname",
+      "description": "Redis Hostname",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "coldfusion/redis/password": {
+      "display_name": "Redis Password",
+      "description": "Redis Password",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
   },
   "groupings": {
   },
