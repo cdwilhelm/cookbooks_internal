@@ -1,0 +1,18 @@
+INSTALLER_UI=SILENT
+SILENT_LICENSE_MODE=full
+SILENT_SERIAL_NUMBER=<%= serial_number %>
+#Enable the following property if you have upgrade license.
+SILENT_PREV_SERIAL_NUMBER=<%= previous_serial %>
+SILENT_INSTALLER_TYPE=jrun
+SILENT_INSTALL_FOLDER=/opt/jrun4
+#SILENT_WEBROOT_FOLDER=
+
+SILENT_INSTALL_ODBC=true
+SILENT_INSTALL_SOLR=true
+SILENT_INSTALL_JNBRIDGE=true
+SILENT_INSTALL_SAMPLES=false
+
+SILENT_ADMIN_PASSWORD=<%= admin_password %>
+SILENT_ENABLE_RDS=true
+#Enable the following if  SILENT_ENABLE_RDS value is true
+SILENT_RDS_PASSWORD=$ADMIN_PASSWORD

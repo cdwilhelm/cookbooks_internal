@@ -1,0 +1,185 @@
+{
+  "name": "coldfusion",
+  "description": "Coldfusion recipes",
+  "long_description": "",
+  "maintainer": "RightScale, Inc.",
+  "maintainer_email": "techsupport@schoolspring.com",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+    "sys": ">= 0.0.0",
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "coldfusion/s3/file_prefix": {
+      "display_name": "Coldfusion bin",
+      "description": "File name of coldfusion bin installer",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install",
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "coldfusion/s3/dl_bucket": {
+      "display_name": "S3 Bucket Name",
+      "description": "S3 bucket where coldfusion bin lives",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install",
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "coldfusion/s3/dl_file": {
+      "display_name": "S3 File Name",
+      "description": "S3 file name",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install",
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "coldfusion/amazon/aws_key": {
+      "display_name": "AWS key id",
+      "description": "AWS key id",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install",
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "coldfusion/amazon/aws_secret": {
+      "display_name": "AWS Secret access key",
+      "description": "AWS Secret access key",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install",
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "coldfusion/serial_number": {
+      "display_name": "Coldfusion current serial number",
+      "description": "Coldfusion current serial number",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install",
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "coldfusion/previous_serial": {
+      "display_name": "Coldfusion previous serial number",
+      "description": "Coldfusion previous serial number",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install",
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "coldfusion/admin_password": {
+      "display_name": "CF admin password",
+      "description": "Coldfusion Administrator Password",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install",
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "coldfusion/db/hostname": {
+      "display_name": "Database Hostname",
+      "description": "Database Hostname",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install",
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "coldfusion/db/username": {
+      "display_name": "Database username",
+      "description": "Database username",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install",
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "coldfusion/db/password": {
+      "display_name": "Database password",
+      "description": "Database password",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install",
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "coldfusion/db/master_schema": {
+      "display_name": "Database master_schema",
+      "description": "Database master_schema",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install",
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "coldfusion/db/multi_schema": {
+      "display_name": "Database multi_schema",
+      "description": "Database multi_schema",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install",
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "coldfusion/db/status_schema": {
+      "display_name": "Database status_schema",
+      "description": "Database status_schema",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install",
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "coldfusion::install": "Install coldfusion"
+  },
+  "version": "0.0.1"
+}
