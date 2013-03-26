@@ -13,6 +13,8 @@ file "/tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin" do
   content bucketfile.value
 end
 
+package "php-apc"
+
 template "/tmp/cf902silent.properties" do
   source "cf902silent.properties.erb"
   variables(
@@ -27,5 +29,6 @@ ruby_block "cf install" do
     system "/tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin -f /tmp/cf902silent.properties"
   end 
 end
+
 
 rightscale_marker :end

@@ -164,6 +164,17 @@
       "calculated": false,
       "type": "string"
     },
+    "coldfusion/application": {
+      "display_name": "Application name (ssv2)",
+      "description": "Application name (ssv2)",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::install",
+      ],
+      "calculated": false,
+      "type": "string"
+    },
     "coldfusion/db/status_schema": {
       "display_name": "Database status_schema",
       "description": "Database status_schema",
@@ -174,12 +185,20 @@
       ],
       "calculated": false,
       "type": "string"
-    },
+    }
   },
   "groupings": {
   },
   "recipes": {
-    "coldfusion::install": "Install coldfusion"
+    "coldfusion::install": "Install coldfusion",
+    "coldfusion::install": "Installs Coldfusion",
+    "coldfusion::plugins": "Adds Redis support",
+    "coldfusion::redis_credentials": "Adds special CF Redis credentials",
+    "coldfusion::configure": "Runs CFAdmin API settings",
+    "coldfusion::start": "Starts Coldfusion",
+    "coldfusion::stop": "Stops Coldfusion",
+    "coldfusion::restart": "Restarts Coldfusion",
+    "coldfusion::php_tweaks": "symfony vendors and setup stuff"
   },
   "version": "0.0.1"
 }

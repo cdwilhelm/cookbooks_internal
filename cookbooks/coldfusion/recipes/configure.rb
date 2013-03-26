@@ -22,6 +22,7 @@ ruby_block "run admin api" do
     unless open('/etc/apache2/apache2.conf') { |f| f.grep(/Include httpd.conf/) }
       system "echo 'Include httpd.conf' >> /etc/apache2/apache2.conf"
     end
+    system 'chmod -R 777 /opt/jrun4/lib/wsconfig/1/'
   end
 end
 
