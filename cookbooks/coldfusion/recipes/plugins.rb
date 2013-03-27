@@ -10,13 +10,10 @@ remote_file "/tmp/#{node[:coldfusion][:tarball]}" do
  mode "0644"
 end
 
-execute "tar" do
- command "tar -C /tmp zxf /tmp/#{node[:coldfusion][:tarball]}"
- action :run
-end
+system "tar -C /tmp zxf /tmp/#{node[:coldfusion][:tarball]}"
 
-file "#{node[:coldfusion][:jar_dir]}/commons-pool-1.5.6.jar" do
-  content IO.read("/tmp/commons-pool-1.5.6/commons-pool-1.5.6.jar")
+file "#{node[:coldfusion][:jar_dir]}/commons-pool-1.6.jar" do
+  content IO.read("/tmp/commons-pool-1.6/commons-pool-1.6.jar")
 end
 
 rightscale_marker :end
