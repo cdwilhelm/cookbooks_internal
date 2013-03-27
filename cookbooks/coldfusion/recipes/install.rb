@@ -1,26 +1,14 @@
 rightscale_marker :begin
 
+require 'rubygems' 
+require 'right_aws' 
 
-r = gempackage "aws-s3" do
-  action :nothing
+s3= RightAws::S3Interface.new(node[:coldfusion][:amazon][:aws_key],node[:coldfusion][:amazon][:aws_secret]) 
+localfile = File.new("/tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin" , 'wb') 
+rhdr = s3.get(node[:glusterfs][:s3][:dl_bucket], node[:coldfusion][:s3][:dl_file]) do |chunk| 
+  localfile.write(chunk)
 end
-
-r.runaction(:install)
-
-Gem.clearpaths
-require "aws-s3"
-
-AWS::S3::Base.establish_connection!(
-    :access_key_id     => node[:coldfusion][:amazon][:aws_key],
-    :secret_access_key => node[:coldfusion][:amazon][:aws_secret]
-)
-
-bucketfile = S3Object.find node[:coldfusion][:s3][:dl_file], node[:glusterfs][:s3][:dl_bucket]
-
-file "/tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin" do
-  content bucketfile.value
-end
-
+localfile.close
 
 template "/tmp/cf902silent.properties" do
   source "cf902silent.properties.erb"
