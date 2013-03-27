@@ -11,10 +11,7 @@ remote_file "/tmp/#{node[:coldfusion][:tarball]}" do
 end
 
 execute "tar" do
- installation_dir = "/tmp/"
- cwd installation_dir
- command "tar zxf /tmp/#{node[:coldfusion][:tarball]}"
- creates installation_dir + "/commons-pool-1.5.6"
+ command "tar -C /tmp zxf /tmp/#{node[:coldfusion][:tarball]}"
  action :run
 end
 
