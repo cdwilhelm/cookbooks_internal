@@ -12,11 +12,8 @@ bash 'extract_module' do
   code <<-EOH
     wget #{node[:coldfusion][:commons_url]}
     tar xzf #{node[:coldfusion][:tarball]}
+    cp commons-pool-1.6/commons-pool-1.6.jar #{node[:coldfusion][:jar_dir]}
     EOH
-end
-
-file "#{node[:coldfusion][:jar_dir]}/commons-pool-1.6.jar" do
-  content IO.read("#{Chef::Config['file_cache_path']}/commons-pool-1.6/commons-pool-1.6.jar")
 end
 
 rightscale_marker :end
