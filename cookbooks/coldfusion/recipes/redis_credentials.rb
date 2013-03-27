@@ -1,9 +1,5 @@
 rightscale_marker :begin
 
-require 'YAML'
-
-puts YAML::dump(node)
-
 template "/home/webapps/#{node[:coldfusion][:application]}/includes/www/logic/redis.cfm" do
   source "redis.cfm.erb"
   variables(
