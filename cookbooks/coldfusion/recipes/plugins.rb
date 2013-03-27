@@ -11,7 +11,7 @@ bash 'extract_module' do
   cwd "/tmp"
   code <<-EOH
     wget #{node[:coldfusion][:commons_url]}
-    tar xzf #{src_filename}
+    tar xzf #{node[:coldfusion][:tarball]}
     EOH
 end
 
