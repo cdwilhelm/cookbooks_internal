@@ -4,7 +4,7 @@ remote_file "#{node[:coldfusion][:jar_dir]}/jedis-2.1.0.jar" do
  source node[:coldfusion][:jedis_url]
  mode "0644"
 end
-log `pwd`
+puts `pwd`
 remote_file "/tmp/#{node[:coldfusion][:tarball]}" do
  source node[:coldfusion][:commons_url]
  mode "0644"
