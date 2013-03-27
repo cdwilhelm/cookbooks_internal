@@ -1,6 +1,14 @@
 rightscale_marker :begin
 
-require 'aws/s3'
+
+r = gempackage "aws-s3" do
+  action :nothing
+end
+
+r.runaction(:install)
+
+Gem.clearpaths
+require "aws-s3"
 
 AWS::S3::Base.establish_connection!(
     :access_key_id     => node[:coldfusion][:amazon][:aws_key],
@@ -13,7 +21,6 @@ file "/tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin" do
   content bucketfile.value
 end
 
-package "php-apc"
 
 template "/tmp/cf902silent.properties" do
   source "cf902silent.properties.erb"
