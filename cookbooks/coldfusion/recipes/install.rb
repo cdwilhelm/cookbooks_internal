@@ -3,9 +3,9 @@ rightscale_marker :begin
 require 'rubygems' 
 require 'right_aws' 
 
-s3= RightAws::S3Interface.new(node[:coldfusion][:amazon][:aws_key],node[:coldfusion][:amazon][:aws_secret])
+s3= RightAws::S3Interface.new(node[:coldfusion][:amazon][:aws_key], node[:coldfusion][:amazon][:aws_secret])
 localfile = File.new("/tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin" , File::CREAT|File::RDWR)
-rhdr = s3.get(node[:coldfusion][:s3][:dl_bucket], node[:coldfusion][:s3][:dl_file]) do |chunk|
+rhdr = s3.get(node[:coldfusion][:s3][:dl_bucket], "#{node[:coldfusion][:s3][:dl_file]}.bin") do |chunk|
   localfile.write(chunk)
 end
 localfile.close
