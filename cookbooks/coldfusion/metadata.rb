@@ -5,6 +5,7 @@ description      "ColdFusion Recipes"
 version          "0.0.1"
 
 depends "rightscale"
+depends "block_device"
 
 recipe "coldfusion::install", "Installs Coldfusion"
 recipe "coldfusion::plugins", "Adds Redis support"
