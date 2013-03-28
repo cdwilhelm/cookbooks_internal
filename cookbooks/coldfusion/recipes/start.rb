@@ -7,7 +7,7 @@ ruby_block "start cf" do
 end
 
 until File.exists?('/tmp/cf.log') && open('/tmp/cf.log') { |f| f.grep(/Server cfusion ready/) }
-  wait(1)
+  sleep(1)
 end
 
 rightscale_marker :end
