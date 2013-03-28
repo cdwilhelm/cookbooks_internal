@@ -19,6 +19,6 @@ template "/tmp/cf902silent.properties" do
   )
 end
 
-system "sudo /tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin -f /tmp/cf902silent.properties"
+system "chmod 777 /tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin; sudo /tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin -f /tmp/cf902silent.properties"
 
 rightscale_marker :end
