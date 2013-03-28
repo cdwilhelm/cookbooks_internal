@@ -10,7 +10,7 @@ x = 0
 until File.exists?('/tmp/cf.log') && open('/tmp/cf.log') { |f| f.grep(/Server cfusion ready/) }
   x += 1
   sleep(1)
-  if x == 1000
+  if x == 300
     break
   end
 end
