@@ -8,7 +8,7 @@ remote_file "#{node[:coldfusion][:jar_dir]}/jedis-2.1.0.jar" do
 end
 
 bash 'extract_module' do
-  cwd "/mnt/ephemeral"
+  cwd "/tmp"
   code <<-EOH
     wget #{node[:coldfusion][:commons_url]}
     tar xzf #{node[:coldfusion][:tarball]}
