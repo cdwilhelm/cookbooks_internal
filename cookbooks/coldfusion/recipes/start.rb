@@ -6,6 +6,7 @@ ruby_block "start cf" do
   end
 end
 
+x = 0
 until File.exists?('/tmp/cf.log') && open('/tmp/cf.log') { |f| f.grep(/Server cfusion ready/) }
   x += 1
   sleep(1)
