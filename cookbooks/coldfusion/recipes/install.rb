@@ -11,6 +11,7 @@ end
 localfile.close
 
 template "/tmp/cf902silent.properties" do
+  mode 00644
   source "cf902silent.properties.erb"
   variables(
     :serial_number => node[:coldfusion][:serial_number],
