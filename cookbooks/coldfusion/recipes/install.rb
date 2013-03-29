@@ -24,7 +24,7 @@ bash "run cf installer" do
   cwd "/tmp"
   code <<-EOH
     chmod 777 /tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin
-    sudo /tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin -f /tmp/cf902silent.properties
+    sudo /tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin -f /tmp/cf902silent.properties >& out
   EOH
 end
 
