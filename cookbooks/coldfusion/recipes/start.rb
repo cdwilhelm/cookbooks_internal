@@ -2,7 +2,7 @@ rightscale_marker :begin
 
 ruby_block "start cf" do
   block do
-    system "/opt/jrun4/bin/jrun start cfusion > /tmp/cf.log 2>&1 "
+    system "/opt/jrun4/bin/jrun start cfusion >2 /tmp/cf.log &"
   end
 end
 
