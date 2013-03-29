@@ -19,9 +19,7 @@ ruby_block "run admin api" do
   block do
     system "curl localhost:8000/cfadmin.cfm"
     system "/opt/jrun4/bin/wsconfig -server cfusion -ws Apache -dir /etc/apache2 -bin /usr/sbin/apache2 -script /usr/sbin/apache2ctl -coldfusion -v"
-    unless open('/etc/apache2/apache2.conf') { |f| f.grep(/Include httpd.conf/) }
-      system "echo 'Include httpd.conf' >> /etc/apache2/apache2.conf"
-    end
+    system "echo 'Include httpd.conf' >> /etc/apache2/apache2.conf"
     system 'chmod -R 777 /opt/jrun4/lib/wsconfig/1/'
   end
 end
