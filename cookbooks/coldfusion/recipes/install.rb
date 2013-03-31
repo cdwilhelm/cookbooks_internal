@@ -28,4 +28,6 @@ bash "run cf installer" do
   EOH
 end
 
+include_recipe "coldfusion::start"
+
 rightscale_marker :end

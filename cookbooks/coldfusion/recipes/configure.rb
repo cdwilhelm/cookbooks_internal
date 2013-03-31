@@ -13,7 +13,6 @@ template "/opt/jrun4/servers/cfusion/cfusion-ear/cfusion-war/cfadmin.cfm" do
   )
 end
 
-include_recipe "coldfusion::start"
 
 ruby_block "run admin api" do
   block do
