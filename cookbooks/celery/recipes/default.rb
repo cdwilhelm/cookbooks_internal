@@ -20,17 +20,30 @@ ruby_block "easy_install -U celery-with-redis" do
 end
 
 log "===> Installing amqp"
-ruby_block "AMQP" do
+ruby_block "rabbitmq-c" do
   block do
     system "git clone git://github.com/alanxz/rabbitmq-c.git"
+  end
+  not_if {File.exists?('/rabbitmq-c')}
+end
+
+ruby_block "rabbitmq-c" do
+  block do
     system "cd rabbitmq-c"
   # Enable and update the codegen git submodule
     system "git submodule init"
     system "git submodule update"
-    system "autoreconf -i && ./configure && make && sudo make install"
+    system "autoreconf -i && ./configure && make && make install"
+  end
+  not_if {File.exists?('/rabbitmq-c/install-sh')}
+end
+
+ruby_block "AMQP" do
+  block do
     system "pecl install AMQP"
     system "echo 'extension=amqp.so' >> /etc/php.ini"
   end
+  not_if "grep /etc/php.ini amqp.so"
 end
 
 template "/usr/lib/python2.6/celeryconfig.py" do
