@@ -1,9 +1,16 @@
 rightscale_marker :begin
 
 log "===> Installing python-pip"
-package "python-pip"
-package "python-dev"
-package "php5-dev"
+case node[:platform]
+when "ubuntu","debian"
+  package "python-pip"
+  package "python-dev"
+  package "php5-dev"
+when "centos"
+  package "python-pip"
+  package "python-devel"
+  package "php53-devel"
+end
 
 log "===> Installing celery"
 ruby_block "easy_install -U celery-with-redis" do
