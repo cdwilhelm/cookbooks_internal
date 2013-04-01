@@ -30,7 +30,7 @@ bash "run cf installer" do
   cwd "/tmp"
   code <<-EOH
     chmod 777 /tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin
-    sudo /tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin -f /tmp/cf902silent.properties >& out
+    /tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin -f /tmp/cf902silent.properties >& out
   EOH
   not_if do
     File.exists?('/tmp/out')
