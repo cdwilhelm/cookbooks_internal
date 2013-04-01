@@ -28,7 +28,7 @@ ruby_block "AMQP" do
     system "git submodule init"
     system "git submodule update"
     system "autoreconf -i && ./configure && make && sudo make install"
-    system "sudo pecl install AMQP"
+    system "pecl install AMQP"
     system "echo 'extension=amqp.so' >> /etc/php.ini"
   end
 end
