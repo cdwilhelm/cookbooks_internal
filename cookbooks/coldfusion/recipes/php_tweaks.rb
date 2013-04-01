@@ -8,7 +8,6 @@ execute "symfony submodules" do
  command "git submodule init"
  command "git submodule update"
  creates installation_dir + "/symfony/vendor/symfony"
- action :run
 end
 
 directory "/home/webapps/#{node[:coldfusion][:application]}/symfony/cache" do

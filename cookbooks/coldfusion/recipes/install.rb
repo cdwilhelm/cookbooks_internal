@@ -18,6 +18,9 @@ template "/tmp/cf902silent.properties" do
     :previous_serial => node[:coldfusion][:previous_serial],
     :admin_password => node[:coldfusion][:admin_password]
   )
+  not_if do
+    File.exists?('/tmp/cf902silent.properties')
+  end
 end
 
 bash "run cf installer" do
@@ -26,6 +29,9 @@ bash "run cf installer" do
     chmod 777 /tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin
     sudo /tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin -f /tmp/cf902silent.properties >& out
   EOH
+  not_if do
+    File.exists?('/tmp/out')
+  end
 end
 
 include_recipe "coldfusion::start"

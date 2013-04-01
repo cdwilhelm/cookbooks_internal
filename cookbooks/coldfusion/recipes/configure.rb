@@ -22,10 +22,18 @@ ruby_block "run admin api" do
     system "touch /opt/jrun4/lib/wsconfig/1/jrunserver.store"
     system 'chmod -R 777 /opt/jrun4/lib/wsconfig/1/'
   end
+  not_if do
+    File.exists?('/opt/jrun4/lib/wsconfig/1/jrunserver.store')
+  end
 end
 
-include_recipe "web_apache::do_restart"
-include_recipe "coldfusion::restart"
+ruby_block "restart services" do
+  include_recipe "web_apache::do_restart"
+  include_recipe "coldfusion::restart"
+  not_if do
+    File.exists?('/opt/jrun4/lib/wsconfig/1/jrunserver.store')
+  end
+end
 
 rightscale_marker :end
 

@@ -14,6 +14,7 @@ bash 'extract_module' do
     tar xzf #{node[:coldfusion][:tarball]}
     cp commons-pool-1.6/commons-pool-1.6.jar #{node[:coldfusion][:jar_dir]}
     EOH
+  not_if { File.exists?("#{node[:coldfusion][:jar_dir]}/commons-pool-1.6.jar") }
 end
 
 rightscale_marker :end
