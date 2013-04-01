@@ -27,9 +27,13 @@ ruby_block "run admin api" do
   end
 end
 
-ruby_block "restart services" do
-  include_recipe "web_apache::do_restart"
-  include_recipe "coldfusion::restart"
+include_recipe "web_apache::do_restart" do
+  not_if do
+    File.exists?('/opt/jrun4/lib/wsconfig/1/jrunserver.store')
+  end
+end
+
+include_recipe "coldfusion::restart" do
   not_if do
     File.exists?('/opt/jrun4/lib/wsconfig/1/jrunserver.store')
   end
