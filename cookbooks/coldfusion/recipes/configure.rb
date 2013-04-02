@@ -31,7 +31,7 @@ when "ubuntu","debian"
 when "centos"
   ruby_block "wsconfig" do
     block do
-      system "/opt/jrun4/bin/wsconfig -server cfusion -ws Apache -dir /etc/httpd -bin /usr/sbin/httpd -script /usr/sbin/apachectl -coldfusion -v"
+      system "/opt/jrun4/bin/wsconfig -server cfusion -ws Apache -dir /etc/httpd/conf -bin /usr/sbin/httpd -script /usr/sbin/apachectl -coldfusion -v"
     end
   end
 end
