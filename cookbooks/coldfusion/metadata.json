@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "sys": ">= 0.0.0",
+    "web_apache": ">= 0.0.0",
     "block_device": ">= 0.0.0"
   },
   "recommendations": {
