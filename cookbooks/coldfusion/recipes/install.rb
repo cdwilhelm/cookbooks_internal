@@ -33,7 +33,7 @@ bash "run cf installer" do
     /tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin -f /tmp/cf902silent.properties >& out
   EOH
   not_if do
-    File.exists?('/tmp/out')
+    File.exists?('/opt/jrun4')
   end
 end
 
