@@ -46,7 +46,7 @@ ruby_block "AMQP" do
   not_if "grep /etc/php.ini amqp.so"
 end
 
-template "/usr/lib/python2.6/celeryconfig.py" do
+template "/usr/lib/python2.7/celeryconfig.py" do
   source "celeryconfig.py.erb"
   variables(
     :redis_password => node[:celery][:redis_password],
