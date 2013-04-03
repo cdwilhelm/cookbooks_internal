@@ -10,12 +10,14 @@ when "centos"
   package "php-pecl-apc"
 end
 
-execute "symfony submodules" do
+bash "symfony submodules" do
  installation_dir = "/home/webapps/#{node[:coldfusion][:application]}"
  cwd installation_dir
- command "git submodule init"
- command "git submodule update"
- creates installation_dir + "/symfony/vendor/symfony"
+ code <<-EOF
+   git submodule init
+   git submodule update
+ EOF
+ creates installation_dir + "/symfony/lib/vendor/symfony/LICENSE"
 end
 
 directory "/home/webapps/#{node[:coldfusion][:application]}/symfony/cache" do
