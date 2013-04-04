@@ -31,7 +31,7 @@
       "recipes": [
         "symfony::clear_cache",
         "symfony::init_submodules",
-        "symfony::redis_credentials",
+        "symfony::redis_credentials"
       ],
       "calculated": false,
       "type": "string"
