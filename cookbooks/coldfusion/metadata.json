@@ -215,13 +215,12 @@
   },
   "recipes": {
     "coldfusion::install": "Install coldfusion",
-    "coldfusion::install": "Installs Coldfusion",
     "coldfusion::plugins": "Adds Redis support",
     "coldfusion::redis_credentials": "Adds special CF Redis credentials",
     "coldfusion::configure": "Runs CFAdmin API settings",
     "coldfusion::start": "Starts Coldfusion",
     "coldfusion::stop": "Stops Coldfusion",
-    "coldfusion::restart": "Restarts Coldfusion",
+    "coldfusion::restart": "Restarts Coldfusion"
   },
   "version": "0.0.1"
 }
