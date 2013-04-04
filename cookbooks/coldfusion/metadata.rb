@@ -15,7 +15,6 @@ recipe "coldfusion::configure", "Runs CFAdmin API settings"
 recipe "coldfusion::start", "Starts Coldfusion"
 recipe "coldfusion::stop", "Stops Coldfusion"
 recipe "coldfusion::restart", "Restarts Coldfusion"
-recipe "coldfusion::php_tweaks", "symfony vendors and setup stuff"
 
 attribute "coldfusion/s3/file_prefix",
     :display_name => "Coldfusion bin",
@@ -69,7 +68,7 @@ attribute "coldfusion/application",
     :display_name => "Application name (ssv2)",
     :description  => "Application name (ssv2)",
     :required     => "required",
-    :recipes      => [ "coldfusion::redis_credentials", "coldfusion::php_tweaks" ]
+    :recipes      => [ "coldfusion::redis_credentials" ]
 
 attribute "coldfusion/redis/hostname",
     :display_name => "redis hostname",

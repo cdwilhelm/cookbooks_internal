@@ -1,0 +1,71 @@
+{
+  "name": "symfony",
+  "description": "Symfony recipes",
+  "long_description": "",
+  "maintainer": "RightScale, Inc.",
+  "maintainer_email": "techsupport@schoolspring.com",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+    "sys": ">= 0.0.0",
+    "web_apache": ">= 0.0.0",
+    "block_device": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "symfony/application": {
+      "display_name": "Application name (ssv2)",
+      "description": "Application name (ssv2)",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "symfony::clear_cache",
+        "symfony::init_submodules",
+        "symfony::redis_credentials",
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "symfony/redis/hostname": {
+      "display_name": "Redis Hostname",
+      "description": "Redis Hostname",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "symfony::redis_credentials"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "symfony/redis/password": {
+      "display_name": "Redis Password",
+      "description": "Redis Password",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "symfony::redis_credentials"
+      ],
+      "calculated": false,
+      "type": "string"
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "symfony::clear_cache": "Clears symfony cache and resets cache/log permissions",
+    "symfony::init_submodules": "does submodule initilization for symfony",
+    "symfony::redis_credentials": "adds redis yml",
+    "symfony::install_apc": "installs apc for php"
+  },
+  "version": "0.0.1"
+}

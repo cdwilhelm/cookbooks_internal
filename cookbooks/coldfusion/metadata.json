@@ -222,7 +222,6 @@
     "coldfusion::start": "Starts Coldfusion",
     "coldfusion::stop": "Stops Coldfusion",
     "coldfusion::restart": "Restarts Coldfusion",
-    "coldfusion::php_tweaks": "symfony vendors and setup stuff"
   },
   "version": "0.0.1"
 }
