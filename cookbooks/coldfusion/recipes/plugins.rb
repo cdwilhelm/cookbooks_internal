@@ -17,4 +17,18 @@ bash 'extract_module' do
   not_if { File.exists?("#{node[:coldfusion][:jar_dir]}/commons-pool-1.6.jar") }
 end
 
+cookbook_file "#{node[:coldfusion][:jar_dir]}/JLinkPointTxn.jar" do
+  source "JLinkPointTxn.jar"
+  mode 0755
+  owner "root"
+  group "root"
+end
+
+cookbook_file "#{node[:coldfusion][:jar_dir]}/twitter4j-core-2.1.5-SNAPSHOT.jar" do
+  source "twitter4j-core-2.1.5-SNAPSHOT.jar"
+  mode 0755
+  owner "root"
+  group "root"
+end
+
 rightscale_marker :end
