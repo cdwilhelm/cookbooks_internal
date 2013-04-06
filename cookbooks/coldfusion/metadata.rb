@@ -112,7 +112,7 @@ attribute "coldfusion/db/multi_schema",
     :required     => "required",
     :recipes      => [ "coldfusion::configure" ]
 
-attribute "coldfusion/db/status_schema",
+attribute "coldfusion/db/stats_schema",
     :display_name => "Database status schema",
     :description  => "DB status schema",
     :required     => "required",

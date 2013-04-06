@@ -9,7 +9,7 @@ template "/opt/jrun4/servers/cfusion/cfusion-ear/cfusion-war/cfadmin.cfm" do
     :db_pass => node[:coldfusion][:db][:password],
     :master_schema => node[:coldfusion][:db][:master_schema],
     :multi_schema => node[:coldfusion][:db][:multi_schema],
-    :status_schema => node[:coldfusion][:db][:status_schema],
+    :stats_schema => node[:coldfusion][:db][:stats_schema],
     :webroot => "/home/webapps/#{node[:coldfusion][:application]}"
   )
 end
