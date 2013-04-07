@@ -64,6 +64,7 @@ end
 log "===> Creating mount point #{MOUNT_POINT}/#{VOL_NAME}"
 directory MOUNT_POINT+"/"+VOL_NAME do
   recursive true
+  not_if File.exists?(MOUNT_POINT+"/"+VOL_NAME)
 end
 
 # mount remote filesystem
