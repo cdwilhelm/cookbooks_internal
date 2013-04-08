@@ -61,10 +61,10 @@ bash "modprobe fuse" do
 end
 
 # create mount point
-log "===> Creating mount point #{MOUNT_POINT}/#{VOL_NAME}"
-directory MOUNT_POINT+"/"+VOL_NAME do
+log "===> Creating mount point #{MOUNT_POINT}"
+directory MOUNT_POINT do
   recursive true
-  not_if File.exists?(MOUNT_POINT+"/"+VOL_NAME)
+  not_if { File.exists?(MOUNT_POINT) }
 end
 
 # mount remote filesystem
@@ -74,16 +74,16 @@ bash "mount_glusterfs" do
   code <<-EOF
     opts=
     [ -n "#{MOUNT_OPTS}" ] && opts="-o #{MOUNT_OPTS}"
-    mount -t glusterfs $opts #{glusterfs_ip}:/#{VOL_NAME} #{MOUNT_POINT}/#{VOL_NAME} 
+    mount -t glusterfs $opts #{glusterfs_ip}:/#{VOL_NAME} #{MOUNT_POINT}
   EOF
-  not_if "/bin/grep -qw '#{MOUNT_POINT}/#{VOL_NAME}' /proc/mounts"
+  not_if "/bin/grep -qw '#{MOUNT_POINT}' /proc/mounts"
 end
 
 right_link_tag "#{TAG_MOUNTED}=true" do
   action :publish
 end
 
-right_link_tag "#{TAG_MOUNT}=#{MOUNT_POINT}/#{VOL_NAME}" do
+right_link_tag "#{TAG_MOUNT}=#{MOUNT_POINT}" do
   action :publish
 end
 
