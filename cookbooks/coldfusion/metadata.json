@@ -183,7 +183,9 @@
       "required": "required",
       "choice": [],
       "recipes": [
-        "coldfusion::install"
+        "coldfusion::install",
+        "coldfusion::redis_credentials",
+        "coldfusion::configure"
       ],
       "calculated": false,
       "type": "string"
