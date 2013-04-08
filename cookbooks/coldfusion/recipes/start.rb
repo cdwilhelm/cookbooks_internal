@@ -2,7 +2,7 @@ rightscale_marker :begin
 
 ruby_block "start cf" do
   block do
-    system "/opt/jrun4/bin/coldfusion"
+    system "/opt/jrun4/bin/coldfusion start"
   end
 end
 
