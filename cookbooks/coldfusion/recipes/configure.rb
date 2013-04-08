@@ -1,7 +1,8 @@
 rightscale_marker :begin
 
-template "/home/webapps/#{node[:coldfusion][:application]}/www/cfadmin.cfm" do
+template "/home/webapps/#{node[:coldfusion][:application]}/www/CFIDE/cfadmin.cfm" do
   source "cfadmin.cfm.erb"
+  mode 00644
   variables(
     :cf_admin_pass => node[:coldfusion][:admin_password],
     :hostname => node[:coldfusion][:db][:hostname],
@@ -33,7 +34,7 @@ end
 
 ruby_block "run admin api" do
   block do
-    system "curl localhost:8000/cfadmin.cfm"
+    system "curl localhost:8000/CFIDE/cfadmin.cfm"
   end
 end
 

@@ -19,6 +19,7 @@ template "/tmp/cf902silent.properties" do
   variables(
     :serial_number => node[:coldfusion][:serial_number],
     :previous_serial => node[:coldfusion][:previous_serial],
+    :webroot => "/home/webapps/#{node[:coldfusion][:application]}/www",
     :admin_password => node[:coldfusion][:admin_password]
   )
   not_if do
