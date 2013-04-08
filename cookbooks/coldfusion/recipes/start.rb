@@ -2,12 +2,12 @@ rightscale_marker :begin
 
 ruby_block "start cf" do
   block do
-    system "/opt/jrun4/bin/jrun start cfusion >2 /tmp/cf.log &"
+    system "/opt/jrun4/bin/coldfusion"
   end
 end
 
 x = 0
-until File.exists?('/tmp/cf.log') && open('/tmp/cf.log') { |f| f.grep(/Server cfusion ready/) }
+until File.exists?('/opt/jrun4/logs/cfserver.log') && open('/opt/jrun4/logs/cfserver.log') { |f| f.grep(/Server coldfusion ready/) }
   x += 1
   sleep(1)
   if x == 300

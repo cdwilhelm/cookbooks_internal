@@ -6,6 +6,6 @@ ruby_block "stop cf" do
   end
 end
 
-File.unlink '/tmp/cf.log' if File.exists?('/tmp/cf.log');
+File.unlink '/opt/jrun4/logs/cfserver.log' if File.exists?('/opt/jrun4/logs/cfserver.log');
 
 rightscale_marker :end
