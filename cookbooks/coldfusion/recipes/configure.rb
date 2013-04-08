@@ -15,27 +15,28 @@ template "/home/webapps/#{node[:coldfusion][:application]}/www/cfadmin.cfm" do
 end
 
 
-ruby_block "run admin api" do
-  block do
-    system "curl localhost:8000/cfadmin.cfm"
-  end
-end
-
 case node[:platform]
 when "ubuntu","debian"
   ruby_block "wsconfig" do
     block do
-      system "/opt/jrun4/runtime/bin/wsconfig -server cfusion -ws Apache -dir /etc/apache2 -bin /usr/sbin/apache2 -script /usr/sbin/apache2ctl -coldfusion -v"
+      system "/opt/jrun4/runtime/bin/wsconfig -server coldfusion -ws Apache -dir /etc/apache2 -bin /usr/sbin/apache2 -script /usr/sbin/apache2ctl -coldfusion -v"
       system "echo 'Include httpd.conf' >> /etc/apache2/apache2.conf"
     end
   end
 when "centos"
   ruby_block "wsconfig" do
     block do
-      system "/opt/jrun4/runtime/bin/wsconfig -server cfusion -ws Apache -dir /etc/httpd/conf -bin /usr/sbin/httpd -script /usr/sbin/apachectl -coldfusion -v"
+      system "/opt/jrun4/runtime/bin/wsconfig -server coldfusion -ws Apache -dir /etc/httpd/conf -bin /usr/sbin/httpd -script /usr/sbin/apachectl -coldfusion -v"
     end
   end
 end
+
+ruby_block "run admin api" do
+  block do
+    system "curl localhost:8000/cfadmin.cfm"
+  end
+end
+
 #ruby_block "permissions" do
 #  block do
 #    system "touch /opt/jrun4/lib/wsconfig/1/jrunserver.store"
