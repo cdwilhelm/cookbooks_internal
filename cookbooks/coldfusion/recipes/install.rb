@@ -38,6 +38,37 @@ bash "run cf installer" do
   end
 end
 
+ruby_block "pull down coldfusion bin from s3" do
+  s3= RightAws::S3Interface.new(node[:coldfusion][:amazon][:aws_key], node[:coldfusion][:amazon][:aws_secret])
+  localfile = File.new("/tmp/CF902.zip" , File::CREAT|File::RDWR)
+  rhdr = s3.get(node[:coldfusion][:s3][:dl_bucket], "CF902.zip") do |chunk|
+    localfile.write(chunk)
+  end
+  localfile.close
+  not_if { File.exists?("/tmp/CF902.zip") }
+end
+
+bash "run cf installer" do
+  cwd "/tmp"
+  code <<-EOH
+    unzip -j CF902.zip CF902/lib/updates/hf902-00004.jar -d /opt/jrun4/lib/updates/.
+  EOH
+  not_if do
+    File.exists?('/opt/jrun4/lib/updates/hf902-00004.jar')
+  end
+end
+
+bash "run cf installer" do
+  cwd "/tmp"
+  code <<-EOH
+    unzip CFIDE-902.zip -d /home/webapps/ssv2/www
+    touch /tmp/ide-update-9.0.2-04
+  EOH
+  not_if do
+    File.exists?('/tmp/ide-update-9.0.2-04')
+  end
+end
+
 include_recipe "coldfusion::start"
 
 rightscale_marker :end
