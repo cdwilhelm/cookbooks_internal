@@ -1,6 +1,6 @@
 rightscale_marker :begin
 
-package openssl-evel
+package openssl-devel
 package pcre-devel
 package httpd-devel
 
