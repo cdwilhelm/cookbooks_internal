@@ -1,8 +1,8 @@
 rightscale_marker :begin
 
-package openssl-devel
-package pcre-devel
-package httpd-devel
+package "openssl-devel"
+package "pcre-devel"
+package "httpd-devel"
 
 cookbook_file "/tmp/mod_qos-10.14.tar.gz" do
   source "mod_qos-10.14.tar.gz"
