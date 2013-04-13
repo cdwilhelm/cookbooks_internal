@@ -10,6 +10,7 @@ depends "web_apache"
 
 recipe "coldfusion::install", "Installs Coldfusion"
 recipe "coldfusion::plugins", "Adds Redis support"
+recipe "coldfusion::add_management_tasks", "Adds tasks for manage"
 recipe "coldfusion::redis_credentials", "Adds special CF Redis credentials"
 recipe "coldfusion::configure", "Runs CFAdmin API settings"
 recipe "coldfusion::start", "Starts Coldfusion"

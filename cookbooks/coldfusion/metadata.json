@@ -218,6 +218,7 @@
   "recipes": {
     "coldfusion::install": "Install coldfusion",
     "coldfusion::plugins": "Adds Redis support",
+    "coldfusion::add_management_tasks": "Adds tasks for manage",
     "coldfusion::redis_credentials": "Adds special CF Redis credentials",
     "coldfusion::configure": "Runs CFAdmin API settings",
     "coldfusion::start": "Starts Coldfusion",
