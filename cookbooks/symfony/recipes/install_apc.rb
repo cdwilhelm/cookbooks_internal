@@ -6,7 +6,10 @@ when "ubuntu","debian"
 when "centos"
   package "php53-devel"
   bash "apc via pecl" do
-    code "pecl install apc"
+    code <<-EOH
+      pecl install apc
+      echo "extension=apc.so" > /etc/php.ini
+    EOH
   end
 end
 
