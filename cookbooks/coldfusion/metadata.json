@@ -100,13 +100,36 @@
       "calculated": false,
       "type": "string"
     },
+    "coldfusion/tasks/password": {
+      "display_name": "CF tasks password",
+      "description": "Coldfusion Tasks Password",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::add_management_tasks"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "coldfusion/tasks/username": {
+      "display_name": "CF tasks username",
+      "description": "Coldfusion Tasks Username",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::add_management_tasks"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
     "coldfusion/admin_password": {
       "display_name": "CF admin password",
       "description": "Coldfusion Administrator Password",
       "required": "required",
       "choice": [],
       "recipes": [
-        "coldfusion::install"
+        "coldfusion::install",
+        "coldfusion::add_management_tasks"
       ],
       "calculated": false,
       "type": "string"

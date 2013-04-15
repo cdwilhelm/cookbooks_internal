@@ -1,0 +1,235 @@
+<cfscript>
+adminObj = createObject("component","CFIDE.adminapi.administrator").login("<%= @cf_admin_pass %>");
+</cfscript>
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Export - Aesop"
+    interval = "daily"
+    password = "<%= @password %>"
+    publish = "yes"
+    requestTimeOut = "300"
+    resolveURL = "no"
+    startDate = "4/16/13"
+    startTime = "12:45 AM"
+    path = "/vol/logs/cftasks/"
+    file = "aesop.txt"
+    url = "http://tasks.schoolspring.com/aesopintegration.cfm"
+    username = "<%= @username %>">
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Application Reminder"
+    interval = "daily"
+    password = "<%= @password %>"
+    publish = "yes"
+    requestTimeOut = "1200"
+    resolveURL = "no"
+    startDate = "1/9/10"
+    startTime = "6:05 AM"
+    path = "/vol/logs/cftasks/"
+    file = "appreminder.html"
+    url = "http://tasks.schoolspring.com/appreminder.cfm"
+    username = "<%= @username %>">
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Export - Quickbooks"
+    interval = "daily"
+    password = "<%= @password %>"
+    publish = "yes"
+    requestTimeOut = "1200"
+    resolveURL = "no"
+    startDate = "1/9/10"
+    startTime = "7:00 AM"
+    path = "/vol/logs/cftasks/"
+    file = "quickbooks.html"
+    url = "http://tasks.schoolspring.com/quickbooks.cfm"
+    username = "<%= @username %>">
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Export - SubFinder"
+    interval = "daily"
+    password = "<%= @password %>"
+    publish = "yes"
+    requestTimeOut = "1200"
+    resolveURL = "no"
+    startDate = "1/9/10"
+    startTime = "12:50 AM"
+    path = "/vol/logs/cftasks/"
+    file = "subfinder.html"
+    url = "http://tasks.schoolspring.com/subfinder.cfm"
+    username = "<%= @username %>">
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Export - Ultimate Software"
+    interval = "daily"
+    password = "<%= @password %>"
+    publish = "yes"
+    requestTimeOut = "1200"
+    resolveURL = "no"
+    startDate = "1/9/10"
+    startTime = "3:00 AM"
+    path = "/vol/logs/cftasks/"
+    file = "ultimatesoftware.txt"
+    url = "http://tasks.schoolspring.com/ultimatesoftware.cfm"
+    username = "<%= @username %>">
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Job Alert"
+    interval = "daily"
+    password = "<%= @password %>"
+    publish = "no"
+    requestTimeOut = "1200"
+    resolveURL = "no"
+    startDate = "1/9/10"
+    startTime = "6:00 AM"
+    url = "http://tasks.schoolspring.org/jobalert.cfm"
+    username = "<%= @username %>">
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Job App Alert"
+    interval = "daily"
+    password = "<%= @password %>"
+    publish = "yes"
+    requestTimeOut = "1200"
+    resolveURL = "no"
+    startDate = "1/9/10"
+    startTime = "5:30 AM"
+    path = "/vol/logs/cftasks/"
+    file = "appalert.html"
+    url = "http://tasks.schoolspring.org/appalert.cfm"
+    username = "<%= @username %>">
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Job Management"
+    interval = "daily"
+    password = "<%= @password %>"
+    publish = "yes"
+    requestTimeOut = "1200"
+    resolveURL = "no"
+    startDate = "1/9/10"
+    startTime = "12:15 AM"
+    path = "/vol/logs/cftasks/"
+    file = "jobmanagement.html"
+    url = "http://tasks.schoolspring.org/jobmanagement.cfm"
+    username = "<%= @username %>">
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Reminder - Gallup"
+    interval = "daily"
+    password = "<%= @password %>"
+    publish = "yes"
+    requestTimeOut = "1200"
+    resolveURL = "no"
+    startDate = "1/9/10"
+    startTime = "11:30 PM"
+    path = "/vol/logs/cftasks/"
+    file = "gallup.html"
+    url = "http://tasks.schoolspring.org/gallup.cfm"
+    username = "<%= @username %>">
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Reminder - Wonderlic"
+    interval = "daily"
+    password = "<%= @password %>"
+    publish = "yes"
+    requestTimeOut = "1200"
+    resolveURL = "no"
+    startDate = "1/9/10"
+    startTime = "11:35 PM"
+    path = "/vol/logs/cftasks/"
+    file = "wonderlic.html"
+    url = "http://tasks.schoolspring.com/wonderlic.cfm"
+    username = "<%= @username %>">
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Admin Alerts"
+    interval = "weekly"
+    password = "<%= @password %>"
+    publish = "no"
+    requestTimeOut = "1200"
+    resolveURL = "no"
+    startDate = "1/7/2013"
+    startTime = "7:30 AM"
+    url = "http://tasks.schoolspring.org/adminalerts.cfm"
+    username = "<%= @username %>">
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Assign Super States"
+    interval = "43200"
+    password = "<%= @password %>"
+    publish = "no"
+    requestTimeOut = "1200"
+    resolveURL = "no"
+    startDate = "1/9/10"
+    startTime = "5:30 AM"
+    endTime = "11:59 PM"
+    url = "http://tasks.schoolspring.org/superstates.cfm"
+    username = "<%= @username %>">
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Check Spool Status"
+    interval = "300"
+    password = "<%= @password %>"
+    publish = "no"
+    requestTimeOut = "300"
+    resolveURL = "no"
+    startDate = "1/9/10"
+    startTime = "12:00 AM"
+    url = "http://tasks.schoolspring.com/mailspoolcheck.cfm"
+    username = "<%= @username %>">
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Email Bounce Management"
+    interval = "900"
+    password = "<%= @password %>"
+    publish = "yes"
+    requestTimeOut = "300"
+    resolveURL = "no"
+    startDate = "1/9/10"
+    startTime = "12:00 AM"
+    path = "/vol/logs/cftasks/"
+    file = "checkbounce.html"
+    url = "http://tasks.schoolspring.org/checkbounceemail.cfm"
+    username = "<%= @username %>">
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Email FBL Management"
+    interval = "1800"
+    password = "<%= @password %>"
+    publish = "yes"
+    requestTimeOut = "300"
+    resolveURL = "no"
+    startDate = "1/9/10"
+    startTime = "12:00 AM"
+    path = "/vol/logs/cftasks/"
+    file = "checkfbl.html"
+    url = "http://tasks.schoolspring.org/checkfblemail.cfm"
+    username = "<%= @username %>">
