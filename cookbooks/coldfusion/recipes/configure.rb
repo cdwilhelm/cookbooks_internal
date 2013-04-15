@@ -25,6 +25,7 @@ when "ubuntu","debian"
     end
   end
 when "centos"
+  package "httpd-devel"
   ruby_block "wsconfig" do
     block do
       system "/opt/jrun4/runtime/bin/wsconfig -server coldfusion -ws Apache -dir /etc/httpd/conf -bin /usr/sbin/httpd -script /usr/sbin/apachectl -coldfusion -v"
