@@ -27,7 +27,7 @@ end
 template "/etc/mail/dkim.key" do
   source "dkim.key.erb"
   variables(
-    :key => node[:postfix][:dkim_key],
+    :key => node[:postfix][:dkim_key]
   )
 end
 
