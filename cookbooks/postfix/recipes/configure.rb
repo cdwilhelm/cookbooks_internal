@@ -1,7 +1,6 @@
 rightscale_marker :begin
 
 package "opendkim"
-package "opendkim-tools"
 
 template "/etc/postfix/main.cf" do
   source "main.cf.erb"
