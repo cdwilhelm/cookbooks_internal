@@ -21,6 +21,12 @@ The $local_transport delivery method is also selected for mail addressed to user
     :required     => "required",
     :recipes      => [ "postfix::configure" ]
 
+attribute "postfix/dkim_key",
+    :display_name => "DKIM Key",
+    :description  => 'DKIM Private Key',
+    :required     => "required",
+    :recipes      => [ "postfix::configure" ]
+
 attribute "postfix/networks",
     :display_name => "Postfix Networks",
     :description  => 'The list of "trusted" remote SMTP clients that have more privileges than "strangers".',

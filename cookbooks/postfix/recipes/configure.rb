@@ -11,6 +11,25 @@ template "/etc/postfix/main.cf" do
   )
 end
 
+cookbook_file "/etc/opendkim.conf" do
+  source "opendkim.conf"
+  mode "0644"
+end
+
+directory "/etc/mail" do
+  owner "nobody"
+  group "root"
+  mode 00755
+  recursive true
+  not_if { File.exists?("/etc/mail") }
+end
+
+template "/etc/mail/dkim.key" do
+  source "dkim.key.erb"
+  variables(
+    :key => node[:postfix][:dkim_key],
+  )
+end
 
 directory node[:postfix][:deploy_dir] do
   owner "nobody"

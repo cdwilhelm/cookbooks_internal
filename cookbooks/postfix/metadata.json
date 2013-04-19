@@ -33,6 +33,16 @@
       "calculated": false,
       "type": "string"
     },
+    "postfix/dkim_key": {
+      "display_name": "DKIM Key",
+      "description": "dkim private key",
+      "required": "required",
+      "recipes": [
+        "postfix::configure"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
     "postfix/networks": {
       "display_name": "Postfix Networks",
       "description": "The list of \"trusted\" remote SMTP clients that have more privileges than \"strangers\".",
