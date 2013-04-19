@@ -29,3 +29,9 @@ mynetworks = <%= @networks %>
 mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = all
+
+# DKIM
+milter_default_action = accept
+milter_protocol = 2
+smtpd_milters = inet:localhost:8891
+non_smtpd_milters = inet:localhost:8891
