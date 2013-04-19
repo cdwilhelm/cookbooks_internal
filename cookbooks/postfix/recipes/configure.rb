@@ -31,6 +31,10 @@ template "/etc/mail/dkim.key" do
   )
 end
 
+service "opendkim" do
+  action :start
+end
+
 directory node[:postfix][:deploy_dir] do
   owner "nobody"
   group "root"
