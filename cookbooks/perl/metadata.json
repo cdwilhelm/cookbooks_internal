@@ -8,7 +8,8 @@
   "platforms": {
   },
   "dependencies": {
-    "sys": ">= 0.0.0"
+    "sys": ">= 0.0.0",
+    "coldfusion": ">= 0.0.0"
   },
   "recommendations": {
   },
@@ -25,7 +26,8 @@
   "groupings": {
   },
   "recipes": {
-    "perl::add_modules": "Installs the modules for perl"
+    "perl::add_modules": "Installs the modules for perl",
+    "perl::configure": "Configures datasources"
   },
   "version": "0.0.1"
 }

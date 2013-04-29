@@ -5,5 +5,7 @@ description      "Perl"
 version          "0.0.1"
 
 depends "sys"
+depends "coldfusion"
 
 recipe "perl::add_modules", "Adds Perl Modules"
+recipe "perl::configure", "Configures Datasources"
