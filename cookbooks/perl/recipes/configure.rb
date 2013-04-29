@@ -1,7 +1,7 @@
 rightscale_marker :begin
 
 template "/home/webapps/#{node[:coldfusion][:application]}/cgi-bin/datasource.pl" do
-  source "datasource.pl"
+  source "datasource.pl.erb"
   mode 00644
   variables(
     :hostname => node[:coldfusion][:db][:hostname],
