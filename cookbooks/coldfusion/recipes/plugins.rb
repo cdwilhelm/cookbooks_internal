@@ -1,5 +1,7 @@
 rightscale_marker :begin
 
+package "htmldoc"
+
 remote_file "#{node[:coldfusion][:jar_dir]}/jedis-2.1.0.jar" do
  source node[:coldfusion][:jedis_url]
  owner 'root'

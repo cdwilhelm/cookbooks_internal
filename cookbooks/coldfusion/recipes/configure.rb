@@ -15,7 +15,6 @@ template "/home/webapps/#{node[:coldfusion][:application]}/www/CFIDE/cfadmin.cfm
   )
 end
 
-
 case node[:platform]
 when "ubuntu","debian"
   ruby_block "wsconfig" do
@@ -39,15 +38,11 @@ ruby_block "run admin api" do
   end
 end
 
-#ruby_block "permissions" do
-#  block do
-#    system "touch /opt/jrun4/lib/wsconfig/1/jrunserver.store"
-#    system 'chmod -R 777 /opt/jrun4/lib/wsconfig/1/'
-#  end
-#  not_if do
-#    File.exists?('/opt/jrun4/lib/wsconfig/1/jrunserver.store')
-#  end
-#end
+ruby_block "permissions" do
+  block do
+    system "chmod -R 777 /home/webapps/#{node[:coldfusion][:application]}/temp/"
+  end
+end
 
 rightscale_marker :end
 
