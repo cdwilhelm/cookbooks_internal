@@ -53,4 +53,9 @@ template "#{node[:postfix][:deploy_dir]}/datasource.pl" do
   )
 end
 
+bash 'postaliases' do
+  code "postalias /etc/aliases"
+  not_if { File.exists?("/etc/aliases.db") }
+end
+
 rightscale_marker :end
