@@ -1,5 +1,6 @@
 rightscale_marker :begin
 
+package "libdate-manip-perl"
 package "libdbi-perl"
 package "libdbd-mysql-perl"
 package "libmail-sender-perl"
