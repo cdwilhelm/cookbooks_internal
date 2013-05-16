@@ -11,7 +11,8 @@ template "/home/webapps/#{node[:coldfusion][:application]}/www/CFIDE/cfadmin.cfm
     :master_schema => node[:coldfusion][:db][:master_schema],
     :multi_schema => node[:coldfusion][:db][:multi_schema],
     :stats_schema => node[:coldfusion][:db][:stats_schema],
-    :webroot => "/home/webapps/#{node[:coldfusion][:application]}"
+    :webroot => "/home/webapps/#{node[:coldfusion][:application]}",
+    :mailserver => node[:coldfusion][:mail][:server]
   )
 end
 
@@ -41,6 +42,9 @@ end
 ruby_block "permissions" do
   block do
     system "chmod -R 777 /home/webapps/#{node[:coldfusion][:application]}/temp/"
+    system "mkdir /opt/jrun4/Mail/Fail"
+    system "chmod 644 /opt/jrun4/Mail/Fail"
+    system "chown nobody.nogroup /opt/jrun4/Mail/Fail"
   end
 end
 

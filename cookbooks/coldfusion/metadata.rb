@@ -17,6 +17,12 @@ recipe "coldfusion::start", "Starts Coldfusion"
 recipe "coldfusion::stop", "Stops Coldfusion"
 recipe "coldfusion::restart", "Restarts Coldfusion"
 
+attribute "coldfusion/mail/server",
+    :display_name => "mailserver hostname",
+    :description  => "Hostname of the SMTP server",
+    :required     => "required",
+    :recipes      => [ "coldfusion::configure" ]
+
 attribute "coldfusion/s3/file_prefix",
     :display_name => "Coldfusion bin",
     :description  => "File name of coldfusion bin installer",

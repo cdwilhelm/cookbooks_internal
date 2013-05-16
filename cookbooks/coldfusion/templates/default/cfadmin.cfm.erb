@@ -42,9 +42,6 @@ extensionsObj.setCustomTagPath('<%= @webroot %>/customtags');
 //set custom tag paths
 extensionsObj.setMapping('/ss','<%= @webroot %>');
 
-//set debug ips
-debugObj.setIP('10.192.183.10');
-debugObj.setDebugProperty('enableDebug',true);
-debugObj.setDebugProperty('enableRobustExceptions',true);
+mailObj.setMailServer('<%= @mailserver %>');
 
 </cfscript>

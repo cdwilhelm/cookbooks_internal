@@ -23,6 +23,17 @@
   "replacing": {
   },
   "attributes": {
+    "coldfusion/mail/server": {
+      "display_name": "Mailserver hostname",
+      "description": "Hostname for SMTP Server",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "coldfusion::configure"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
     "coldfusion/s3/file_prefix": {
       "display_name": "Coldfusion bin",
       "description": "File name of coldfusion bin installer",
