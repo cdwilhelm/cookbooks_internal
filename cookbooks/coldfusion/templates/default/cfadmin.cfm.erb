@@ -14,6 +14,10 @@ stDSN.host = "<%= @hostname %>";
 stDSN.database = "<%= @master_schema %>"; 
 stDSN.username = "<%= @db_user %>"; 
 stDSN.password = "<%= @db_pass %>"; 
+stDSN.login_timeout = 30; 
+stDSN.timeout = 240; 
+stDSN.interval = 60; 
+stDSN.pooling = 0;
 stDSN.args = "tinyInt1isBit=false&zeroDateTimeBehavior=convertToNull&useConfigs=coldFusion";
 datasourceObj.setMySQL5( argumentCollection=stDSN);
 
@@ -23,6 +27,10 @@ stDSN.host = "<%= @hostname %>";
 stDSN.database = "<%= @multi_schema %>"; 
 stDSN.username = "<%= @db_user %>"; 
 stDSN.password = "<%= @db_pass %>"; 
+stDSN.login_timeout = 30; 
+stDSN.timeout = 240; 
+stDSN.interval = 60; 
+stDSN.pooling = 0;
 stDSN.args = "tinyInt1isBit=false&zeroDateTimeBehavior=convertToNull&useConfigs=coldFusion";
 datasourceObj.setMySQL5( argumentCollection=stDSN);
 
@@ -32,6 +40,10 @@ stDSN.host = "<%= @hostname %>";
 stDSN.database = "<%= @stats_schema %>"; 
 stDSN.username = "<%= @db_user %>"; 
 stDSN.password = "<%= @db_pass %>"; 
+stDSN.login_timeout = 30; 
+stDSN.timeout = 240; 
+stDSN.interval = 60; 
+stDSN.pooling = 0;
 stDSN.args = "tinyInt1isBit=false&zeroDateTimeBehavior=convertToNull&useConfigs=coldFusion";
 datasourceObj.setMySQL5( argumentCollection=stDSN);
 
