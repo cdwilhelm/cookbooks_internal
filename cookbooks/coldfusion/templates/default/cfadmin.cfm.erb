@@ -5,6 +5,8 @@ mailObj = createObject("component","CFIDE.adminapi.mail");
 runtimeObj = createObject("component","CFIDE.adminapi.runtime");
 extensionsObj = createObject("component","CFIDE.adminapi.extensions");
 debugObj = createObject("component","CFIDE.adminapi.debugging");
+runtimeObj = createObject("component","CFIDE.adminapi.runtime");
+eventGatewayObj = createObject("component","CFIDE.adminapi.eventgateway");
 
 
 //set datasource
@@ -56,4 +58,47 @@ extensionsObj.setMapping('/ss','<%= @webroot %>');
 
 mailObj.setMailServer('<%= @mailserver %>');
 
+runtimeObj.setCacheProperty('MaxCachedQuery',1000);
+runtimeObj.setCacheProperty('TemplateCacheSize',2048);
+runtimeObj.setScopeProperty('enableJ2EESessions',1);
+runtimeObj.setJvmProperty('MaxJVMHeapSize',768);
+runtimeObj.setRuntimeProperty('TimeoutRequestTimeLimit',30);
+runtimeObj.setRuntimeProperty('MissingTemplateHandler','/404.cfm');
+runtimeObj.setRuntimeProperty('SiteWideErrorHandler','/error.cfm');
+runtimeObj.setRuntimeProperty('RequestLimit',75);
+
+eventGatewayObj.setGatewayProperty('MaxQueueSize',10);
+
+debugObj.setLogProperty('logMailSeverity','Error');
+debugObj.setLogProperty('logMailSentMessages',1);
 </cfscript>
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Respool Mail"
+    interval = "900"
+    password = "<%= @password %>"
+    publish = "no"
+    requestTimeOut = "1200"
+    resolveURL = "no"
+    startDate = "1/9/10"
+    startTime = "12:00 AM"
+    endTime = "11:59 PM"
+    url = "http://localhost:8000/tasks2/respoolmail.cfm"
+    username = "<%= @username %>">
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Check Spool Status"
+    interval = "1800"
+    password = "<%= @password %>"
+    publish = "no"
+    requestTimeOut = "1200"
+    resolveURL = "no"
+    startDate = "1/9/10"
+    startTime = "12:00 AM"
+    endTime = "11:59 PM"
+    url = "http://localhost:8000/tasks2/mailspoolcheck.cfm"
+    username = "<%= @username %>">
