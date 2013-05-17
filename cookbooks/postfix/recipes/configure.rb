@@ -41,6 +41,13 @@ directory node[:postfix][:deploy_dir] do
   action :create
 end
 
+directory "#{node[:postfix][:deploy_dir]}/temp" do
+  owner "postfix"
+  group "root"
+  mode 00755
+  action :create
+end
+
 template "#{node[:postfix][:deploy_dir]}/datasource.pl" do
   source "datasource.pl.erb"
   variables(
