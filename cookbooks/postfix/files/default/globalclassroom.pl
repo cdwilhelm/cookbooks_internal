@@ -5,7 +5,7 @@ use Mail::Sender;
 use WWW::Mechanize;
 
 $SMTPSERVER = "localhost";
-require "/var/www/cgi-bin/datasource.pl";
+require "/usr/local/share/mailscripts/datasource.pl";
 
 #### CONTROL VARIABLES #########################
 $NFROM = "techsupport\@schoolspring.com";

@@ -8,10 +8,10 @@ use MIME::Base64;
 use Image::Magick;
 use Net::Amazon::S3;
 
-$SSROOT = "/var/www";
+$SSROOT = "/usr/local/share/mailscripts/";
 $tempdir = $SSROOT . "/temp/faxdocs";
 $logdir = "/vol/logs/faxdocs";
-require "$SSROOT/cgi-bin/datasource.pl";
+require "$SSROOT/datasource.pl";
 
 #### CONTROL VARIABLES #########################
 $SMTPSERVER = "localhost";
