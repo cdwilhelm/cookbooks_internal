@@ -56,6 +56,30 @@
       "calculated": false,
       "type": "string"
     },
+    "glusterfs/sync/local": {
+      "display_name": "Local sync string",
+      "description": "The local side of the unison sync cmd",
+      "required": "required",
+      "recipes": [
+        "glusterfs::sync_volumes"
+      ],
+      "choice": [
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "glusterfs/sync/remote": {
+      "display_name": "Remote sync string",
+      "description": "The remote side of the unison sync cmd",
+      "required": "required",
+      "recipes": [
+        "glusterfs::sync_volumes"
+      ],
+      "choice": [
+      ],
+      "calculated": false,
+      "type": "string"
+    },
     "glusterfs/server/aws_access_key_id": {
       "display_name": "Aws Key ID",
       "description": "the Access Key ID for AWS",

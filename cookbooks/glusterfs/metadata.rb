@@ -63,6 +63,18 @@ attribute "glusterfs/volume_name",
                        "glusterfs::server_join_cluster",
                        "glusterfs::client_mount_volume" ]
 
+attribute "glusterfs/sync/local",
+    :display_name => "Local sync",
+    :description  => "Local side of the unison sync command",
+    :required     => "required",
+    :recipes      => [ "glusterfs::sync_volumes" ]
+
+attribute "glusterfs/sync/remote",
+    :display_name => "Remote sync",
+    :description  => "Remote side of the unison sync command",
+    :required     => "required",
+    :recipes      => [ "glusterfs::sync_volumes" ]
+
 attribute "glusterfs/server/storage_path",
     :display_name => "Storage Path",
     :description  => "The directory path to be used as a brick and added to the GlusterFS volume",
