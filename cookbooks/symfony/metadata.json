@@ -10,6 +10,7 @@
   "dependencies": {
     "sys": ">= 0.0.0",
     "web_apache": ">= 0.0.0",
+    "coldfusion": ">= 0.0.0",
     "block_device": ">= 0.0.0"
   },
   "recommendations": {
@@ -30,6 +31,7 @@
       "choice": [],
       "recipes": [
         "symfony::clear_cache",
+        "symfony::configure",
         "symfony::init_submodules",
         "symfony::redis_credentials"
       ],
@@ -63,6 +65,7 @@
   },
   "recipes": {
     "symfony::clear_cache": "Clears symfony cache and resets cache/log permissions",
+    "symfony::configure": "Configures configurations",
     "symfony::init_submodules": "does submodule initilization for symfony",
     "symfony::redis_credentials": "adds redis yml",
     "symfony::install_apc": "installs apc for php"

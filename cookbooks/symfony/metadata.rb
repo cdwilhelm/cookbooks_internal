@@ -7,8 +7,10 @@ version          "0.0.1"
 depends "rightscale"
 depends "block_device"
 depends "web_apache"
+depends "rightscale"
 
 recipe "symfony::install_apc", "Installs php APC"
+recipe "symfony::configure", "Configures configurations"
 recipe "symfony::redis_credentials", "Adds special CF Redis credentials"
 recipe "symfony::clear_cache", "clears cache and resets permissions for symfony"
 recipe "symfony::init_submodules", "adds git submodules required for symofny"
@@ -17,7 +19,7 @@ attribute "symfony/application",
     :display_name => "Application name (ssv2)",
     :description  => "Application name (ssv2)",
     :required     => "required",
-    :recipes      => [ "symfony::redis_credentials", "symfony::php_tweaks" ]
+    :recipes      => [ "symfony::redis_credentials", "symfony::init_submodules", "symfony::redis_credentials", "symfony::configure" ]
 
 attribute "symfony/redis/hostname",
     :display_name => "redis hostname",
