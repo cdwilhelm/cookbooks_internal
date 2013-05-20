@@ -11,7 +11,7 @@ CMD_LOG = "/tmp/gluster.out.#{$$}"
 TAG_MOUNT     = node[:glusterfs][:tag][:mount]
 TAG_MOUNTED   = node[:glusterfs][:tag][:mounted]
 
-cmd = "unison -auto -silent #{node[:glusterfs][:sync][:local]} #{node[:glusterfs][:sync][:remote]}"
+cmd = "unison -fastcheck true -auto -batch #{node[:glusterfs][:sync][:local]} #{node[:glusterfs][:sync][:remote]}"
 
 log "running #{cmd}"
 log `#{cmd}`
