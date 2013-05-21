@@ -11,6 +11,7 @@ depends "web_apache"
 recipe "coldfusion::install", "Installs Coldfusion"
 recipe "coldfusion::plugins", "Adds Redis support"
 recipe "coldfusion::add_management_tasks", "Adds tasks for manage"
+recipe "coldfusion::management_conf", "Adds tasks for manage"
 recipe "coldfusion::redis_credentials", "Adds special CF Redis credentials"
 recipe "coldfusion::configure", "Runs CFAdmin API settings"
 recipe "coldfusion::start", "Starts Coldfusion"
@@ -87,7 +88,7 @@ attribute "coldfusion/application",
     :display_name => "Application name (ssv2)",
     :description  => "Application name (ssv2)",
     :required     => "required",
-    :recipes      => [ "coldfusion::redis_credentials", "coldfusion::install", "colfusion::configure" ]
+    :recipes      => [ "coldfusion::redis_credentials", "coldfusion::install", "coldfusion::configure", "coldfusion::management_conf" ]
 
 attribute "coldfusion/redis/hostname",
     :display_name => "redis hostname",
