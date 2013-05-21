@@ -5,12 +5,12 @@ template "/home/webapps/#{node[:coldfusion][:application]}/www/CFIDE/cftasks.cfm
   mode 00644
   variables(
     :cf_admin_pass => node[:coldfusion][:admin_password],
-    :db_user => node[:coldfusion][:tasks][:username],
-    :db_pass => node[:coldfusion][:tasks][:password]
+    :username => node[:coldfusion][:tasks][:username],
+    :password => node[:coldfusion][:tasks][:password]
   )
 end
 
-ruby_block "run admin api" do
+ruby_block "run tasks api" do
   block do
     system "curl localhost:8000/CFIDE/cftasks.cfm"
   end
