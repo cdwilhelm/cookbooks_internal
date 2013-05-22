@@ -10,7 +10,7 @@ use Net::Amazon::S3;
 
 $SSROOT = "/usr/local/share/mailscripts/";
 $tempdir = $SSROOT . "/temp/faxdocs";
-$logdir = "/vol/logs/faxdocs";
+$logdir = "/mnt/ephemeral/glusterfs/logs/faxdocs";
 require "$SSROOT/datasource.pl";
 
 #### CONTROL VARIABLES #########################
@@ -26,14 +26,6 @@ $NTO = "techsupport\@schoolspring.com";
 #$email = <INF>;
 #close INF;
 #}
-
-# Amazon S3 bucket
-$s3 = Net::Amazon::S3->new({
-    aws_access_key_id => $awsKey,
-    aws_secret_access_key => $awsSecret,
-    retry => 1, secure => 1
-});
-$S3BUCKET = $s3->bucket($s3filesbucket);
 
 my $holdTerminator = $/;
 undef $/;
@@ -90,9 +82,6 @@ if ($email =~ /Content-Type: image\/tiff.*?filename="?(.*?)\.tif"?(.*?)-/s) {
 					$image->Write($pdffile);
 					undef $image;
 					
-					# writing to S3 bucket
-					$s3doc = "employer/" . $employer_id . "/docs/" . $document_id . ".pdf";
-          			$S3BUCKET->add_key_filename($s3doc, $pdffile);
 	
 				} else { 
 					$error = "Employer Fax number not registered: $fax_cid";
