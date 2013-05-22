@@ -15,6 +15,7 @@ users.each do | username, options |
   end
   template "/home/#{username}/.forward" do
     source "forward.erb"
+    mode "755"
     variables(
       :deploy_dir => node[:postfix][:deploy_dir],
       :username => username
@@ -22,7 +23,7 @@ users.each do | username, options |
   end
   cookbook_file "#{node[:postfix][:deploy_dir]}/#{username}.pl" do
     source "#{username}.pl"
-    mode "0644"
+    mode "0755"
   end
 end
 
