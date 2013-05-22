@@ -6,6 +6,7 @@ version          "0.0.1"
 
 depends "rightscale"
 depends "block_device"
+depends "glusterfs"
 depends "web_apache"
 
 recipe "coldfusion::install", "Installs Coldfusion"

@@ -4,6 +4,7 @@ template "/home/webapps/#{node[:coldfusion][:application]}/includes/www/logic/re
   source "redis.cfm.erb"
   mode 00644
   variables(
+    :loc => node[:glusterfs][:volume_name],
     :hostname => node[:coldfusion][:redis][:hostname],
     :password => node[:coldfusion][:redis][:password]
   )
