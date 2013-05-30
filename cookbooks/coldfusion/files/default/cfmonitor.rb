@@ -38,8 +38,8 @@ begin
 
     # collectd data and print the values
     data = `/opt/jrun4/bin/cfstat -n`[/(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)/]
-    puts("PUTVAL #{hostname}/#{PLUGIN_NAME}/guage-reqs_queued #{start_run}:#{$7}")
-    puts("PUTVAL #{hostname}/#{PLUGIN_NAME}/guage-reqs_timed_out #{start_run}:#{$9}")
+    puts("PUTVAL #{hostname}/#{PLUGIN_NAME}/gauge-reqs_queued #{start_run}:#{$7}")
+    puts("PUTVAL #{hostname}/#{PLUGIN_NAME}/gauge-reqs_timed_out #{start_run}:#{$9}")
 
     # sleep to make the interval
     while((time_left = (next_run - Time.now.to_i)) > 0) do
