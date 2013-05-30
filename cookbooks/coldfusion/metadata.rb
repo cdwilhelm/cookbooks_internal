@@ -11,6 +11,7 @@ depends "web_apache"
 
 recipe "coldfusion::install", "Installs Coldfusion"
 recipe "coldfusion::plugins", "Adds Redis support"
+recipe "coldfusion::setup_monitoring", "Adds collectd monitoring task"
 recipe "coldfusion::add_management_tasks", "Adds tasks for manage"
 recipe "coldfusion::management_conf", "Adds tasks for manage"
 recipe "coldfusion::redis_credentials", "Adds special CF Redis credentials"

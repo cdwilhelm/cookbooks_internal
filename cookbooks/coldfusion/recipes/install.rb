@@ -69,6 +69,13 @@ bash "run cf installer" do
   end
 end
 
+bash "permissions" do
+  code <<-EOF
+   sed -i "s/<var name='postParametersLimit'><number>100.0/<var name='postParametersLimit'><number>500.0/g" /opt/jrun4/lib/neo-runtime.xml
+  EOF
+end
+
+
 include_recipe "coldfusion::start"
 
 rightscale_marker :end

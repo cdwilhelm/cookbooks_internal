@@ -21,6 +21,7 @@ stDSN.timeout = 240;
 stDSN.interval = 60; 
 stDSN.pooling = 0;
 stDSN.args = "tinyInt1isBit=false&zeroDateTimeBehavior=convertToNull&useConfigs=coldFusion";
+stDSN.validationQuery = "select 1";
 datasourceObj.setMySQL5( argumentCollection=stDSN);
 
 stDSN = structNew(); 
@@ -33,7 +34,8 @@ stDSN.login_timeout = 30;
 stDSN.timeout = 240; 
 stDSN.interval = 60; 
 stDSN.pooling = 0;
-stDSN.args = "tinyInt1isBit=false&zeroDateTimeBehavior=convertToNull&useConfigs=coldFusion";
+stDSN.args = "allowMultiQueries=true&tinyInt1isBit=false&zeroDateTimeBehavior=convertToNull&useConfigs=coldFusion";
+stDSN.validationQuery = "select 1";
 datasourceObj.setMySQL5( argumentCollection=stDSN);
 
 stDSN = structNew(); 
@@ -47,6 +49,7 @@ stDSN.timeout = 240;
 stDSN.interval = 60; 
 stDSN.pooling = 0;
 stDSN.args = "tinyInt1isBit=false&zeroDateTimeBehavior=convertToNull&useConfigs=coldFusion";
+stDSN.validationQuery = "select 1";
 datasourceObj.setMySQL5( argumentCollection=stDSN);
 
 

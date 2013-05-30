@@ -11,6 +11,7 @@
     "sys": ">= 0.0.0",
     "web_apache": ">= 0.0.0",
     "glusterfs": ">= 0.0.0",
+    "rightscale": ">= 0.0.0",
     "block_device": ">= 0.0.0"
   },
   "recommendations": {
@@ -254,6 +255,7 @@
   "recipes": {
     "coldfusion::install": "Install coldfusion",
     "coldfusion::plugins": "Adds Redis support",
+    "coldfusion::setup_monitoring": "Adds Collectd monitoring task",
     "coldfusion::add_management_tasks": "Adds tasks for manage",
     "coldfusion::redis_credentials": "Adds special CF Redis credentials",
     "coldfusion::configure": "Runs CFAdmin API settings",
