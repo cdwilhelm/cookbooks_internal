@@ -37,9 +37,16 @@ begin
     next_run = start_run + sampling_interval
 
     # collectd data and print the values
+
+    #Pg/Sec  DB/Sec  CP/Sec  Reqs  Reqs  Reqs  AvgQ   AvgReq AvgDB  Bytes  Bytes
+    #Now Hi  Now Hi  Now Hi  Q'ed  Run'g TO'ed Time   Time   Time   In/Sec Out/Sec
+    #0   0   0   0   -1  -1  0     0     7     0      689    3      0      0
+
     data = `/opt/jrun4/bin/cfstat -n`[/(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)\s+(-?[\d]*)/]
     puts("PUTVAL #{hostname}/#{PLUGIN_NAME}/gauge-reqs_queued #{start_run}:#{$7}")
-    puts("PUTVAL #{hostname}/#{PLUGIN_NAME}/gauge-reqs_timed_out #{start_run}:#{$9}")
+    puts("PUTVAL #{hostname}/#{PLUGIN_NAME}/counter-reqs_timed_out #{start_run}:#{$9}")
+    puts("PUTVAL #{hostname}/#{PLUGIN_NAME}/gauge-avg_req_time #{start_run}:#{$11}")
+    puts("PUTVAL #{hostname}/#{PLUGIN_NAME}/gauge-avg_db_time #{start_run}:#{$12}")
 
     # sleep to make the interval
     while((time_left = (next_run - Time.now.to_i)) > 0) do
