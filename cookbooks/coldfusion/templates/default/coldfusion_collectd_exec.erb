@@ -11,5 +11,5 @@
 
 <Plugin exec>
   #    userid    plugin executable                   plugin args
-  Exec "nobody" "<%= node[:rightscale][:collectd_lib] %>/plugins/coldfusion.rb" "-h" "<%= node[:rightscale][:instance_uuid] %>"
+  Exec "nobody" "<%= node[:rightscale][:collectd_lib] %>/plugins/coldfusion.rb" "-h" "<%= node[:rightscale][:instance_uuid] %>" "-i" "10"
 </Plugin>
