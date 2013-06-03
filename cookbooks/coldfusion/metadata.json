@@ -119,6 +119,7 @@
       "required": "required",
       "choice": [],
       "recipes": [
+        "coldfusion::garbage_collect",
         "coldfusion::add_management_tasks"
       ],
       "calculated": false,
@@ -130,6 +131,7 @@
       "required": "required",
       "choice": [],
       "recipes": [
+        "coldfusion::garbage_collect",
         "coldfusion::add_management_tasks"
       ],
       "calculated": false,
@@ -256,6 +258,7 @@
     "coldfusion::install": "Install coldfusion",
     "coldfusion::plugins": "Adds Redis support",
     "coldfusion::setup_monitoring": "Adds Collectd monitoring task",
+    "coldfusion::garbage_collect": "Runs Garbage Collection",
     "coldfusion::add_management_tasks": "Adds tasks for manage",
     "coldfusion::redis_credentials": "Adds special CF Redis credentials",
     "coldfusion::configure": "Runs CFAdmin API settings",
