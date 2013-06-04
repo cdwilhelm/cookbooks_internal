@@ -263,6 +263,7 @@
     "coldfusion::add_management_tasks": "Adds tasks for manage",
     "coldfusion::redis_credentials": "Adds special CF Redis credentials",
     "coldfusion::configure": "Runs CFAdmin API settings",
+    "coldfusion::wsconfig": "Runs wsconfig on boot",
     "coldfusion::start": "Starts Coldfusion",
     "coldfusion::stop": "Stops Coldfusion",
     "coldfusion::restart": "Restarts Coldfusion"
