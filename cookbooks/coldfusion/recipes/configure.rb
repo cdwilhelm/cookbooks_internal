@@ -18,11 +18,6 @@ template "/home/webapps/#{node[:coldfusion][:application]}/www/CFIDE/cfadmin.cfm
   )
 end
 
-ruby_block "run admin api" do
-  block do
-    system "curl localhost:8000/CFIDE/cfadmin.cfm"
-  end
-end
 
 ruby_block "permissions" do
   block do
@@ -31,6 +26,18 @@ ruby_block "permissions" do
     system "mkdir /opt/jrun4/Mail/Fail"
     system "chmod 755 /opt/jrun4/Mail/Fail"
     system "chown nobody.nogroup /opt/jrun4/Mail/Fail"
+  end
+end
+
+ruby_block "run admin api" do
+  block do
+    system "while [ `/opt/jrun4/bin/cfstat | grep "Could not" | wc -l`  -gt 0 ]
+do
+        echo -n '.';
+        sleep 1;
+done
+sleep 5;"
+    system "curl localhost:8000/CFIDE/cfadmin.cfm"
   end
 end
 
