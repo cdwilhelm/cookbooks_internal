@@ -73,13 +73,13 @@ attribute "coldfusion/tasks/username",
     :display_name => "CF Tasks username ",
     :description  => "Coldfusion Tasks Username",
     :required     => "required",
-    :recipes      => [ "coldfusion::add_management_tasks" ]
+    :recipes      => [ "coldfusion::add_management_tasks", "coldfusion::configure", "coldfusion::garbage_collect" ]
 
 attribute "coldfusion/tasks/password",
     :display_name => "CF Tasks password ",
     :description  => "Coldfusion Tasks Password",
     :required     => "required",
-    :recipes      => [ "coldfusion::add_management_tasks" ]
+    :recipes      => [ "coldfusion::add_management_tasks", "coldfusion::configure", "coldfusion::garbage_collect" ]
 
 attribute "coldfusion/admin_password",
     :display_name => "CF Admin password",

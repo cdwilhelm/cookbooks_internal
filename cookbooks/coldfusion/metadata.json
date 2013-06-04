@@ -120,6 +120,7 @@
       "choice": [],
       "recipes": [
         "coldfusion::garbage_collect",
+        "coldfusion::configure",
         "coldfusion::add_management_tasks"
       ],
       "calculated": false,
