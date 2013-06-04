@@ -27,6 +27,7 @@ end
 ruby_block "permissions" do
   block do
     system "chmod -R 777 /home/webapps/#{node[:coldfusion][:application]}/temp/"
+    system "mkdir /home/webapps/#{node[:coldfusion][:application]}/includes/localhost"
     system "mkdir /opt/jrun4/Mail/Fail"
     system "chmod 755 /opt/jrun4/Mail/Fail"
     system "chown nobody.nogroup /opt/jrun4/Mail/Fail"
