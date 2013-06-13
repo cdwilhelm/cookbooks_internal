@@ -1297,7 +1297,7 @@
             </var>
           </struct>
         </var>
-        <var name='Employer Update'>
+        <var name='Reminder - Workflow'>
           <struct type='coldfusion.scheduling.CronTabEntry'>
             <var name='http_port'>
               <string>80</string>
@@ -1311,7 +1311,7 @@
               </string>
             </var>
             <var name='start_time'>
-              <string>1:55:00 PM</string>
+              <string>4:55:00 AM</string>
             </var>
             <var name='disabled'>
               <boolean value='true'/>
@@ -1320,7 +1320,7 @@
               <boolean value='false'/>
             </var>
             <var name='start_date'>
-              <string>1/10/2010</string>
+              <string>6/14/2013</string>
             </var>
             <var name='request_time_out'>
               <string>300</string>
@@ -1329,13 +1329,13 @@
               <string>80</string>
             </var>
             <var name='task'>
-              <string>Employer Update</string>
+              <string>Reminder - Workflow</string>
             </var>
             <var name='operation'>
               <string>HTTPRequest</string>
             </var>
             <var name='paused'>
-              <boolean value='true'/>
+              <boolean value='false'/>
             </var>
             <var name='file'>
               <string>
@@ -1345,10 +1345,10 @@
               <string>tasks</string>
             </var>
             <var name='url'>
-              <string>http://tasks.schoolspring.org/employerupdate.cfm</string>
+              <string>http://tasks.schoolspring.org/workflowreminder.cfm</string>
             </var>
             <var name='interval'>
-              <string>ONCE</string>
+              <string>DAILY</string>
             </var>
             <var name='password'>
               <string>0!:Z+YE+!/ZV?E!I.[G&lt;]TP  <char code='0a'/>
