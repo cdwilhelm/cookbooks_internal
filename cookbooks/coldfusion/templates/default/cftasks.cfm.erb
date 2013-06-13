@@ -233,3 +233,19 @@ adminObj = createObject("component","CFIDE.adminapi.administrator").login("<%= @
     file = "checkfbl.html"
     url = "http://tasks.schoolspring.com/checkfblemail.cfm"
     username = "<%= @username %>">
+    
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Reminder - Workflow"
+    interval = "daily"
+    password = "<%= @password %>"
+    publish = "yes"
+    requestTimeOut = "300"
+    resolveURL = "no"
+    startDate = "6/14/2013"
+    startTime = "4:55 AM"
+    path = "/mnt/ephemeral/glusterfs/logs/cftasks/"
+    file = "workflowreminder.html"
+    url = "http://tasks.schoolspring.com/workflowreminder.cfm"
+    username = "<%= @username %>">
