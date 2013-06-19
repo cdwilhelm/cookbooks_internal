@@ -68,6 +68,7 @@ runtimeObj.setJvmProperty('MaxJVMHeapSize',768);
 runtimeObj.setJvmProperty('JVMArguments','-server -Dsun.io.useCanonCaches=false -XX:MaxPermSize=192m -XX:+UseParallelGC -Xbatch -Dcoldfusion.rootDir={application.home}/../ -Dcoldfusion.libPath={application.home}/../lib -Duser.timezone=US/Eastern');
 runtimeObj.setJvmProperty('MaxJVMHeapSize',768);
 runtimeObj.setRuntimeProperty('TimeoutRequestTimeLimit',30);
+runtimeObj.setRuntimeProperty('PostSizeLimit',500);
 runtimeObj.setRuntimeProperty('MissingTemplateHandler','/404.cfm');
 runtimeObj.setRuntimeProperty('SiteWideErrorHandler','/error.cfm');
 runtimeObj.setRuntimeProperty('RequestLimit',75);
