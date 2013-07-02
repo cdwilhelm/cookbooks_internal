@@ -1,6 +1,3 @@
-require "rubygems"
-require "json"
-
 rightscale_marker :begin
 
 node[:web_app] = JSON.parse(node[:web_app_config])
