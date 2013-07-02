@@ -15,19 +15,17 @@ git "/home/webapps/#{node[:web_app][:application]}" do
   notifies :run, "execute[clear_cache]"
 end
 
-node[:web_app][:templates].each do |key, value|
-  if value[:htpasswd]
-    htpasswd node[:web_app][:application], node[:web_app][:htpasswd][:username], node[:web_app][:htpasswd][:passwd]
-  end
-  template "/home/webapps/#{node[:web_app][:application]}/Symfony2/app/config/parameters.yml" do
-    source "parameters.yml.erb"
-    variables(
-      :hostname => node[:web_app][:database][:hostname],
-      :username => node[:web_app][:database][:username],
-      :password => node[:web_app][:database][:password],
-      :schema_name => node[:web_app][:database][:schema_name]
-    )
-  end
+if value[:htpasswd]
+  htpasswd node[:web_app][:application], node[:web_app][:htpasswd][:username], node[:web_app][:htpasswd][:passwd]
+end
+template "/home/webapps/#{node[:web_app][:application]}/Symfony2/app/config/parameters.yml" do
+  source "parameters.yml.erb"
+  variables(
+    :hostname => node[:web_app][:database][:hostname],
+    :username => node[:web_app][:database][:username],
+    :password => node[:web_app][:database][:password],
+    :schema_name => node[:web_app][:database][:schema_name]
+  )
 end
 
 def htpasswd(application, username, password)
