@@ -1,3 +1,6 @@
+require "rubygems"
+require "json"
+
 rightscale_marker :begin
 
 node[:web_app] = JSON.parse(node[:web_app_config])
@@ -12,7 +15,7 @@ git "/home/webapps/#{node[:web_app][:application]}" do
   notifies :run, "execute[clear_cache]"
 end
 
-if value[:htpasswd]
+if node[:web_app][:htpasswd]
   htpasswd node[:web_app][:application], node[:web_app][:htpasswd][:username], node[:web_app][:htpasswd][:passwd]
 end
 template "/home/webapps/#{node[:web_app][:application]}/Symfony2/app/config/parameters.yml" do
