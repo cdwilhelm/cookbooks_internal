@@ -46,7 +46,7 @@ end
 
 link "/etc/apache2/sites-available/#{node[:web_app][:application]}.conf" do
   to "/etc/apache2/sites-enabled/#{node[:web_app][:application]}.conf"
-  notifies :reload, "service[apache]"
+  notifies :reload, "service[apache2]"
 end
 
 execute "composer_install" do
