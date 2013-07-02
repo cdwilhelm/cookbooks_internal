@@ -25,7 +25,7 @@ node[:web_app][:templates].each do |key, value|
       :hostname => node[:web_app][:database][:hostname],
       :username => node[:web_app][:database][:username],
       :password => node[:web_app][:database][:password],
-      :schema_name => node[:web_app][:database][:schema_name],
+      :schema_name => node[:web_app][:database][:schema_name]
     )
   end
 end
