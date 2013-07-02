@@ -1,0 +1,15 @@
+<VirtualHost *:8000>
+  ServerAlias <%= @hostname %>
+  ServerAdmin webmaster@localhost
+  DocumentRoot /home/webapps/<%= @application %>/symfony2/web/
+  ServerName <%= @hostname %>
+  DirectoryIndex app.php
+  ScriptAlias /cgi-bin/ /home/webapps/<%= @application %>/cgi-bin/
+
+  <Directory /home/webapps/<%= @application %>/admin/>
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride All
+    Order allow,deny
+    allow from all
+  </Directory>
+</VirtualHost>

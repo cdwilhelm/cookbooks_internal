@@ -24,6 +24,17 @@
   "replacing": {
   },
   "attributes": {
+    "web_app_config": {
+      "display_name": "Application config json string",
+      "description": "Application config json string",
+      "required": "required",
+      "choice": [],
+      "recipes": [
+        "symfony::add_vhost"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
     "symfony/application": {
       "display_name": "Application name (ssv2)",
       "description": "Application name (ssv2)",
@@ -64,6 +75,7 @@
   "groupings": {
   },
   "recipes": {
+    "symfony::add_vhost": "Clones from repo and adds vhost",
     "symfony::clear_cache": "Clears symfony cache and resets cache/log permissions",
     "symfony::configure": "Configures configurations",
     "symfony::init_submodules": "does submodule initilization for symfony",
