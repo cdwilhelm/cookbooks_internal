@@ -15,8 +15,11 @@ git "/home/webapps/#{node[:web_app][:application]}" do
   notifies :run, "execute[clear_cache]"
 end
 
+def htpasswd(application, username, password)
+end
+
 if node[:web_app][:htpasswd]
-  htpasswd node[:web_app][:application], node[:web_app][:htpasswd][:username], node[:web_app][:htpasswd][:passwd]
+  command "htpasswd /home/webapps/#{node[:web_app][:application]}/.htpasswd #{node[:web_app][:htpasswd][:username]} #{node[:web_app][:htpasswd][:username]}"
 end
 template "/home/webapps/#{node[:web_app][:application]}/Symfony2/app/config/parameters.yml" do
   source "parameters.yml.erb"
@@ -28,9 +31,6 @@ template "/home/webapps/#{node[:web_app][:application]}/Symfony2/app/config/para
   )
 end
 
-def htpasswd(application, username, password)
-  command "htpasswd /home/webapps/#{application}/.htpasswd #{username} #{password}"
-end
 
 log "===> Creating vhost"
 template "/etc/apache2/sites-available/#{node[:web_app][:application]}.conf" do
