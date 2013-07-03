@@ -30,6 +30,9 @@ package "php5" do
   action :upgrade
 end
 
+package "php5-curl" do
+  action :install
+end
 
 execute "composer_install" do
   cwd "/home/webapps/#{node[:web_app][:application]}/symfony2/"
