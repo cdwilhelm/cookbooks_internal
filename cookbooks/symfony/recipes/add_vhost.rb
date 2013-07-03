@@ -22,6 +22,7 @@ end
 
 execute "composer_install" do
   command "add-apt-repository ppa:ondrej/php5"
+  command "apt-get update"
   action :run
 end
 
