@@ -46,8 +46,9 @@ template "/etc/apache2/sites-available/#{node[:web_app][:application]}.conf" do
   )
 end
 
-link "/etc/apache2/sites-available/#{node[:web_app][:application]}.conf" do
-  to "/etc/apache2/sites-enabled/#{node[:web_app][:application]}.conf"
+log "===> Linking vhost"
+link "/etc/apache2/sites-enabled/#{node[:web_app][:application]}.conf" do
+  to "/etc/apache2/sites-available/#{node[:web_app][:application]}.conf"
 end
 
 execute "restart_apache" do
