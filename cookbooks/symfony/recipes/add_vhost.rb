@@ -46,8 +46,13 @@ end
 
 link "/etc/apache2/sites-available/#{node[:web_app][:application]}.conf" do
   to "/etc/apache2/sites-enabled/#{node[:web_app][:application]}.conf"
-  notifies :restart, resources(:service => "apache2"), :immediately
 end
+
+execute "restart_apache" do
+  command "apache2ctl restart"
+  action :run
+end
+
 
 execute "composer_install" do
   cwd "/home/webapps/#{node[:web_app][:application]}"
