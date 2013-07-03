@@ -18,7 +18,7 @@ end
 
 execute "composer_install" do
   cwd "/home/webapps/#{node[:web_app][:application]}/symfony2/"
-  command "php composer.phar install"
+  command "php composer.phar install --dev --prefer-dist"
   only_if { ::File.exists?("/home/webapps/#{node[:web_app][:application]}/symfony2/composer.phar") }
   action :run
 end
