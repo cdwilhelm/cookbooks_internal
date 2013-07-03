@@ -5,7 +5,7 @@ rightscale_marker :begin
 
 node[:web_app] = JSON.parse(node[:web_app_config])
 
-RightScale::Repo::GitSshKey.new.create(new_resource.credential, new_resource.ssh_host_key)
+RightScale::Repo::GitSshKey.new.create(node[:repo][:default][:credential], node[:repo][:default][:credential] )
 
 log "===> Cloning resource"
 git "/home/webapps/#{node[:web_app][:application]}" do
