@@ -8,8 +8,11 @@ depends "rightscale"
 depends "block_device"
 depends "web_apache"
 depends "rightscale"
+depends "repo_git"
+depends "app_php"
 
 recipe "symfony::install_apc", "Installs php APC"
+recipe "symfony::add_vhost", "Adds a new vhost"
 recipe "symfony::configure", "Configures configurations"
 recipe "symfony::redis_credentials", "Adds special CF Redis credentials"
 recipe "symfony::clear_cache", "clears cache and resets permissions for symfony"
@@ -32,3 +35,24 @@ attribute "symfony/redis/password",
     :description  => "redis password",
     :required     => "optional",
     :recipes      => [ "symfony::redis_credentials" ]
+
+attribute "repo/default/credential",
+  :display_name => "Account credential",
+  :description =>
+    "A valid credential (i.e. password, SSH key, account secret)" +
+    " to access files in the specified location. This input is always" +
+    " required for Git and Rsync but may be optional for other providers." +
+    " Example: cred:RACKSPACE_AUTH_KEY",
+  :required => "recommended",
+  :recipes => ["repo::default"]
+
+attribute "repo/default/ssh_host_key",
+  :display_name => "Known hosts ssh key",
+  :description =>
+    "A valid SSH key which will be appended to /root/.ssh/known_hosts file." +
+    " This input will allow to verify the destination host, by comparing its" +
+    " IP,FQDN, SSH-RSA with the record in /root/.ssh/known_hosts file." +
+    " Use this input if you want to improve security" +
+    " and for MiTM attacks prevention. Example: cred:SSH_KNOWN_HOST_KEY.",
+  :required => "optional",
+  :recipes => ["repo::default"]
