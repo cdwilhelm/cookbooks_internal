@@ -16,6 +16,20 @@ git "/home/webapps/#{node[:web_app][:application]}" do
   action :sync
 end
 
+package "python-software-properties" do
+  action :install
+end
+
+execute "composer_install" do
+  command "add-apt-repository ppa:ondrej/php5"
+  action :run
+end
+
+package "php5" do
+  action :upgrade
+end
+
+
 execute "composer_install" do
   cwd "/home/webapps/#{node[:web_app][:application]}/symfony2/"
   command "php composer.phar install --dev --prefer-dist"
