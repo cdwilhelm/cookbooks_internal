@@ -25,7 +25,7 @@ if node[:web_app][:htpasswd]
     command "htpasswd -c -b /home/webapps/#{node[:web_app][:application]}/.htpasswd #{node[:web_app][:htpasswd][:username]} #{node[:web_app][:htpasswd][:username]}"
   end
 end
-template "/home/webapps/#{node[:web_app][:application]}/Symfony2/app/config/parameters.yml" do
+template "/home/webapps/#{node[:web_app][:application]}/symfony2/app/config/parameters.yml" do
   source "parameters.yml.erb"
   variables(
     :hostname => node[:web_app][:database][:hostname],
