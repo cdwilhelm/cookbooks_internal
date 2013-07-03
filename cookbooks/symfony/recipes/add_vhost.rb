@@ -22,7 +22,7 @@ end
 
 if node[:web_app][:htpasswd]
   execute "htpasswd" do 
-    command "htpasswd -c /home/webapps/#{node[:web_app][:application]}/.htpasswd #{node[:web_app][:htpasswd][:username]} #{node[:web_app][:htpasswd][:username]}"
+    command "htpasswd -c -b /home/webapps/#{node[:web_app][:application]}/.htpasswd #{node[:web_app][:htpasswd][:username]} #{node[:web_app][:htpasswd][:username]}"
   end
 end
 template "/home/webapps/#{node[:web_app][:application]}/Symfony2/app/config/parameters.yml" do
