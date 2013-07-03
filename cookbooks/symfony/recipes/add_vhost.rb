@@ -17,9 +17,6 @@ git "/home/webapps/#{node[:web_app][:application]}" do
   notifies :run, "execute[clear_cache]"
 end
 
-def htpasswd(application, username, password)
-end
-
 if node[:web_app][:htpasswd]
   execute "htpasswd" do 
     command "htpasswd -c -b /home/webapps/#{node[:web_app][:application]}/.htpasswd #{node[:web_app][:htpasswd][:username]} #{node[:web_app][:htpasswd][:username]}"
@@ -58,16 +55,16 @@ end
 
 
 execute "composer_install" do
-  cwd "/home/webapps/#{node[:web_app][:application]}"
+  cwd "/home/webapps/#{node[:web_app][:application]}/symfony2/"
   command "php composer.phar install"
-  only_if { ::File.exists?("/home/webapps/#{node[:web_app][:application]}/composer.phar") }
+  only_if { ::File.exists?("/home/webapps/#{node[:web_app][:application]}/symfony2/composer.phar") }
   action :nothing
 end
 
 execute "clear_cache" do
   cwd "/home/webapps/#{node[:web_app][:application]}"
   command "app/console cache:clear"
-  only_if { ::File.exists?("/home/webapps/#{node[:web_app][:application]}/app/console") }
+  only_if { ::File.exists?("/home/webapps/#{node[:web_app][:application]}/symfony2/app/console") }
   action :nothing
 end
 
