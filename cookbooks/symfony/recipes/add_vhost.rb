@@ -56,7 +56,7 @@ execute "composer_install" do
 end
 
 execute "clear_cache" do
-  cwd "/home/webapps/#{node[:web_app][:application]}"
+  cwd "/home/webapps/#{node[:web_app][:application]}/symfony2/"
   command "app/console cache:clear"
   only_if { ::File.exists?("/home/webapps/#{node[:web_app][:application]}/symfony2/app/console") }
   action :run
