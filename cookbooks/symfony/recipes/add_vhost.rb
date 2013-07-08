@@ -20,7 +20,7 @@ package "python-software-properties" do
   action :install
 end
 
-execute "composer_install" do
+execute "php_add_package" do
   command "add-apt-repository ppa:ondrej/php5"
   command "apt-get update"
   action :run
@@ -34,9 +34,23 @@ package "php5-curl" do
   action :install
 end
 
+package "acl" do
+  action :install
+end
+
+execute "add acl to mount" do
+  cwd "/home/webapps/#{node[:web_app][:application]}/symfony2/"
+  command "sed 's/barrier=0/barrier=0,acl/' -i /etc/fstab"
+  command "mount -o remount /"
+  command "setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/cache app/logs"
+  command "setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs"
+  action :run
+end
+
 execute "composer_install" do
   cwd "/home/webapps/#{node[:web_app][:application]}/symfony2/"
-  command "php composer.phar install --dev --prefer-dist"
+  command "rm composer.lock"
+  command "php composer.phar install"
   only_if { ::File.exists?("/home/webapps/#{node[:web_app][:application]}/symfony2/composer.phar") }
   action :run
 end
