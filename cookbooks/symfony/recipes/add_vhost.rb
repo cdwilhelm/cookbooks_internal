@@ -22,7 +22,6 @@ end
 
 execute "php_add_package" do
   command "add-apt-repository ppa:ondrej/php5"
-  command "add-apt-repository ppa:chris-lea/node.js"
   command "apt-get update"
   action :run
 end
@@ -71,7 +70,9 @@ end
 
 execute "clear_cache" do
   cwd "/home/webapps/#{node[:web_app][:application]}/symfony2/"
-  command "app/console cache:clear"
+  command "app/console cache:clear --env=prod"
+  command "app/console assets:install --env=prod"
+  command "app/console assetic:dump --env=prod"
   only_if { ::File.exists?("/home/webapps/#{node[:web_app][:application]}/symfony2/app/console") }
   action :run
 end
