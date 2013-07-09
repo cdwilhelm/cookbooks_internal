@@ -31,7 +31,8 @@
       "description": "A valid credential (i.e. password, SSH key, account secret) to access files in the specified location. This input is always required for Git and Rsync but may be optional for other providers. Example: cred:RACKSPACE_AUTH_KEY",
       "required": "recommended",
       "recipes": [
-        "symfony::add_vhost"
+        "symfony::add_vhost",
+        "symfony::update_code"
       ],
       "choice": [
 
@@ -44,7 +45,8 @@
       "description": "A valid SSH key which will be appended to /root/.ssh/known_hosts file. This input will allow to verify the destination host, by comparing its IP,FQDN, SSH-RSA with the record in /root/.ssh/known_hosts file. Use this input if you want to improve security and for MiTM attacks prevention. Example: cred:SSH_KNOWN_HOST_KEY.",
       "required": "optional",
       "recipes": [
-        "symfony::add_vhost"
+        "symfony::add_vhost",
+        "symfony::update_code"
       ],
       "choice": [
 
@@ -58,7 +60,8 @@
       "required": "required",
       "choice": [],
       "recipes": [
-        "symfony::add_vhost"
+        "symfony::add_vhost",
+        "symfony::update_code"
       ],
       "calculated": false,
       "type": "string"
@@ -104,6 +107,7 @@
   },
   "recipes": {
     "symfony::add_vhost": "Clones from repo and adds vhost",
+    "symfony::update_code": "Syncs repo",
     "symfony::clear_cache": "Clears symfony cache and resets cache/log permissions",
     "symfony::configure": "Configures configurations",
     "symfony::init_submodules": "does submodule initilization for symfony",

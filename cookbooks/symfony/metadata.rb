@@ -12,7 +12,8 @@ depends "repo_git"
 depends "app_php"
 
 recipe "symfony::install_apc", "Installs php APC"
-recipe "symfony::add_vhost", "Adds a new vhost"
+recipe "symfony::add_vhost", "Adds a new vhost and clones repo"
+recipe "symfony::update_code", "Syncs repository"
 recipe "symfony::configure", "Configures configurations"
 recipe "symfony::redis_credentials", "Adds special CF Redis credentials"
 recipe "symfony::clear_cache", "clears cache and resets permissions for symfony"
@@ -22,7 +23,7 @@ attribute "symfony/application",
     :display_name => "Application name (ssv2)",
     :description  => "Application name (ssv2)",
     :required     => "required",
-    :recipes      => [ "symfony::redis_credentials", "symfony::init_submodules", "symfony::redis_credentials", "symfony::configure" ]
+    :recipes      => [ "symfony::redis_credentials", "symfony::init_submodules", "symfony::redis_credentials", "symfony::configure", "symfony::update_code", "symfony::add_vhost" ]
 
 attribute "symfony/redis/hostname",
     :display_name => "redis hostname",
