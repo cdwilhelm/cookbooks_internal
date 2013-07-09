@@ -52,6 +52,10 @@ package "nodejs" do
   action :install
 end
 
+package "npm" do
+  action :install
+end
+
 execute "node_less" do
   command "npm install -G less"
   action :run
