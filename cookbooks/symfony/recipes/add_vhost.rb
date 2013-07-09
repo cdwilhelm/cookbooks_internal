@@ -22,6 +22,7 @@ end
 
 execute "php_add_package" do
   command "add-apt-repository ppa:ondrej/php5"
+  command "add-apt-repository ppa:chris-lea/node.js"
   command "apt-get update"
   action :run
 end
@@ -44,6 +45,15 @@ execute "add acl to mount" do
   command "mount -o remount /"
   command "setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/cache app/logs"
   command "setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs"
+  action :run
+end
+
+package "nodejs" do
+  action :install
+end
+
+execute "node_less" do
+  command "npm install -G less"
   action :run
 end
 
