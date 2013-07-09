@@ -56,7 +56,7 @@ package "npm" do
 end
 
 execute "node_less" do
-  command "npm install -G less"
+  command "npm install -g less"
   action :run
 end
 
