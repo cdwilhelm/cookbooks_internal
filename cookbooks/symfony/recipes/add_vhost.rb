@@ -28,6 +28,10 @@ execute "php_add_package" do
 end
 
 package "php5" do
+  action :install
+end
+
+package "php5" do
   action :upgrade
 end
 
