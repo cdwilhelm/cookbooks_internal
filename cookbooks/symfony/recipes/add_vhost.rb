@@ -62,6 +62,10 @@ package "default-jre" do
 end
 
 package "nodejs" do
+  action :remove
+end
+
+package "nodejs" do
   action :install
 end
 
