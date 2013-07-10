@@ -32,11 +32,13 @@ end
 
 apt_repository "nodejs" do
   uri "http://ppa.launchpad.net/chris-lea/node.js"
+  components ["main"]
   keyserver "keyserver.ubuntu.com"
   key "C7917B12"
 end
 apt_repository "nodejs" do
   uri "http://ppa.launchpad.net/ondrej/php5"
+  components ["main"]
   keyserver "keyserver.ubuntu.com"
   key "E5267A6C"
 end
