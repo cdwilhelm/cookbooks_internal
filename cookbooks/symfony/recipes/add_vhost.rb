@@ -26,7 +26,7 @@ package "php5" do
 end
 
 execute "php_add_package" do
-  command "add-apt-repository -y  ppa:ondrej/php5"
+  command "add-apt-repository -y ppa:ondrej/php5"
   command "apt-get update"
   action :run
 end
