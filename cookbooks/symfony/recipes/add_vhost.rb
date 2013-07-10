@@ -20,11 +20,15 @@ package "python-software-properties" do
   action :install
 end
 
+#todo test the version
+package "php5" do
+  action :remove
+end
+
 execute "php_add_package" do
   command "add-apt-repository ppa:ondrej/php5"
   command "add-apt-repository ppa:chris-lea/node.js"
   command "apt-get update"
-  command "apt-get upgrade"
   action :run
 end
 
