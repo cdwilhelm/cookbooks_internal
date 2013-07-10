@@ -37,8 +37,8 @@ apt_repository "nodejs" do
   keyserver "keyserver.ubuntu.com"
   key "C7917B12"
 end
-apt_repository "nodejs" do
-  uri "http://ppa.launchpad.net/ondrej/php5"
+apt_repository "php5.4" do
+  uri "http://ppa.launchpad.net/ondrej/php5/ubuntu"
   distribution node['lsb']['codename']
   components ["main"]
   keyserver "keyserver.ubuntu.com"
