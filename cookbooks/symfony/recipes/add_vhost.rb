@@ -63,6 +63,10 @@ end
 package "nodejs" do
   action :remove
 end
+execute "touch_apt_list" do
+  command "touch /etc/apt/sources.list"
+  action :run
+end
 
 execute "add_node_ppa" do
   command "add-apt-repository ppa:chris-lea/node.js"
