@@ -89,6 +89,7 @@ end
 
 template "/home/webapps/#{node[:web_app][:application]}/symfony2/app/config/parameters.yml" do
   source "parameters.yml.erb"
+  mode "0644"
   variables(
     :hostname => node[:web_app][:database][:hostname],
     :username => node[:web_app][:database][:username],
