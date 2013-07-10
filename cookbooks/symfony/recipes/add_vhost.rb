@@ -30,18 +30,19 @@ execute "touch_apt_list" do
   action :run
 end
 
+apt_repository "nodejs" do
+  uri "http://ppa.launchpad.net/chris-lea/node.js"
+end
+apt_repository "nodejs" do
+  uri "http://ppa.launchpad.net/ondrej/php5"
+end
 execute "php_add_package" do
-  command "add-apt-repository -y ppa:ondrej/php5"
   command "apt-get update"
   action :run
 end
 
 package "php5" do
   action :install
-end
-
-package "php5" do
-  action :upgrade
 end
 
 package "php5-curl" do
@@ -67,12 +68,6 @@ end
 
 package "nodejs" do
   action :remove
-end
-
-execute "add_node_ppa" do
-  command "add-apt-repository -y ppa:chris-lea/node.js"
-  command "apt-get update"
-  action :run
 end
 
 package "nodejs" do

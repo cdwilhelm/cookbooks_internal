@@ -9,6 +9,7 @@ depends "block_device"
 depends "web_apache"
 depends "rightscale"
 depends "repo_git"
+depends "apt"
 depends "app_php"
 
 recipe "symfony::install_apc", "Installs php APC"

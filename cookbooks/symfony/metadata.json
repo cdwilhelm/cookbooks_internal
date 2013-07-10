@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "sys": ">= 0.0.0",
+    "apt": ">= 0.0.0",
     "web_apache": ">= 0.0.0",
     "app_php": ">= 0.0.0",
     "coldfusion": ">= 0.0.0",
