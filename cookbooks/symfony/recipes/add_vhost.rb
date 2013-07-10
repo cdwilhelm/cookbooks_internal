@@ -31,13 +31,13 @@ execute "touch_apt_list" do
 end
 
 apt_repository "nodejs" do
-  uri "http://ppa.launchpad.net/chris-lea/node.js"
+  uri "http://ppa.launchpad.net/chris-lea/node.js/ubuntu"
   distribution node['lsb']['codename']
   components ["main"]
   keyserver "keyserver.ubuntu.com"
   key "C7917B12"
 end
-apt_repository "php5.4" do
+apt_repository "php5_4" do
   uri "http://ppa.launchpad.net/ondrej/php5/ubuntu"
   distribution node['lsb']['codename']
   components ["main"]
