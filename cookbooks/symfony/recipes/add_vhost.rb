@@ -66,6 +66,16 @@ execute "node_less" do
   action :run
 end
 
+template "/home/webapps/#{node[:web_app][:application]}/symfony2/app/config/parameters.yml" do
+  source "parameters.yml.erb"
+  variables(
+    :hostname => node[:web_app][:database][:hostname],
+    :username => node[:web_app][:database][:username],
+    :password => node[:web_app][:database][:password],
+    :schema_name => node[:web_app][:database][:schema_name]
+  )
+end
+
 execute "composer_install" do
   cwd "/home/webapps/#{node[:web_app][:application]}/symfony2/"
   command "rm composer.lock"
@@ -88,15 +98,6 @@ if node[:web_app].has_key?("htpasswd")
   execute "htpasswd" do 
     command "htpasswd -c -b /home/webapps/#{node[:web_app][:application]}/.htpasswd #{node[:web_app][:htpasswd][:username]} #{node[:web_app][:htpasswd][:username]}"
   end
-end
-template "/home/webapps/#{node[:web_app][:application]}/symfony2/app/config/parameters.yml" do
-  source "parameters.yml.erb"
-  variables(
-    :hostname => node[:web_app][:database][:hostname],
-    :username => node[:web_app][:database][:username],
-    :password => node[:web_app][:database][:password],
-    :schema_name => node[:web_app][:database][:schema_name]
-  )
 end
 
 
