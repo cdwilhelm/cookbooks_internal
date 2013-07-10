@@ -57,6 +57,10 @@ execute "add acl to mount" do
   action :run
 end
 
+package "default-jre" do
+  action :install
+end
+
 package "nodejs" do
   action :install
 end
