@@ -27,7 +27,6 @@ end
 
 execute "php_add_package" do
   command "add-apt-repository ppa:ondrej/php5"
-  command "add-apt-repository ppa:chris-lea/node.js"
   command "apt-get update"
   action :run
 end
@@ -63,6 +62,12 @@ end
 
 package "nodejs" do
   action :remove
+end
+
+execute "add_node_ppa" do
+  command "add-apt-repository ppa:chris-lea/node.js"
+  command "apt-get update"
+  action :run
 end
 
 package "nodejs" do
