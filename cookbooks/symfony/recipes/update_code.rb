@@ -20,7 +20,7 @@ template "/home/webapps/#{node[:web_app][:application]}/symfony2/app/config/para
   source "parameters.yml.erb"
   mode "0644"
   variables(
-    :hostname => node[:coldfusion][:db][:hostname],
+    :hostname => node[:web_app][:database][:hostname],
     :username => node[:web_app][:database][:username],
     :password => node[:web_app][:database][:password],
     :redis_hostname => node[:symfony][:redis][:hostname],
