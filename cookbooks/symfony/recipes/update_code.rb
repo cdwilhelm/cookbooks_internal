@@ -16,6 +16,18 @@ git "/home/webapps/#{node[:web_app][:application]}" do
   action :sync
 end
 
+template "/home/webapps/#{node[:web_app][:application]}/symfony2/app/config/parameters.yml" do
+  source "parameters.yml.erb"
+  mode "0644"
+  variables(
+    :hostname => node[:coldfusion][:db][:hostname],
+    :username => node[:web_app][:database][:username],
+    :password => node[:web_app][:database][:password],
+    :redis_hostname => node[:symfony][:redis][:hostname],
+    :schema_name => node[:web_app][:database][:schema_name]
+  )
+end
+
 execute "composer_install" do
   cwd "/home/webapps/#{node[:web_app][:application]}/symfony2/"
   command "rm composer.lock"

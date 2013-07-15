@@ -94,6 +94,7 @@ template "/home/webapps/#{node[:web_app][:application]}/symfony2/app/config/para
     :hostname => node[:coldfusion][:db][:hostname],
     :username => node[:web_app][:database][:username],
     :password => node[:web_app][:database][:password],
+    :redis_hostname => node[:symfony][:redis][:hostname],
     :schema_name => node[:web_app][:database][:schema_name]
   )
 end
