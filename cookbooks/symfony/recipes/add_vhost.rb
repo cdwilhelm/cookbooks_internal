@@ -16,6 +16,11 @@ git "/home/webapps/#{node[:web_app][:application]}" do
   action :sync
 end
 
+execute "htpasswd" do
+  command "htpasswd -b -c /home/webapps/#{node[:web_app][:application]}/.htpasswd #{node[:web_app][:htpasswd][:username]} #{node[:web_app][:htpasswd][:password]}"
+  action :run
+end
+
 package "python-software-properties" do
   action :install
 end
