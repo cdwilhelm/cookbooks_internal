@@ -98,7 +98,7 @@ attribute "glusterfs/client/mount_point",
     :description  => "(Client only) The directory path where the GlusterFS volume should be mounted (e.g., /mnt/storage).",
     :type         => "string",
     :required     => "recommended",
-    :default      => "/mnt/ephemeral/glusterfs",
+    :default      => "/mnt/glusterfs",
     :recipes      => [ "glusterfs::default",
                        "glusterfs::client_mount_volume" ]
 
@@ -106,5 +106,6 @@ attribute "glusterfs/client/mount_options",
     :display_name => "Mount Options",
     :description  => "(Client only) Extra options to be passed to the mount command",
     :required     => "optional",
+    :default      => "default,acl",
     :recipes      => [ "glusterfs::default",
                        "glusterfs::client_mount_volume" ]
