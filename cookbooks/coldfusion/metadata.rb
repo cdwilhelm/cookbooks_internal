@@ -14,7 +14,6 @@ recipe "coldfusion::plugins", "Adds Redis support"
 recipe "coldfusion::setup_monitoring", "Adds collectd monitoring task"
 recipe "coldfusion::garbage_collect", "Runs garbage collection"
 recipe "coldfusion::add_management_tasks", "Adds tasks for manage"
-recipe "coldfusion::management_conf", "Adds tasks for manage"
 recipe "coldfusion::redis_credentials", "Adds special CF Redis credentials"
 recipe "coldfusion::configure", "Runs CFAdmin API settings"
 recipe "coldfusion::wsconfig", "runs Wsconfig"
@@ -92,7 +91,7 @@ attribute "coldfusion/application",
     :display_name => "Application name (ssv2)",
     :description  => "Application name (ssv2)",
     :required     => "required",
-    :recipes      => [ "coldfusion::redis_credentials", "coldfusion::install", "coldfusion::configure", "coldfusion::management_conf" ]
+    :recipes      => [ "coldfusion::redis_credentials", "coldfusion::install", "coldfusion::configure" ]
 
 attribute "coldfusion/redis/hostname",
     :display_name => "redis hostname",

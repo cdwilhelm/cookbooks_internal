@@ -224,7 +224,6 @@
       "recipes": [
         "coldfusion::install",
         "coldfusion::redis_credentials",
-        "coldfusion::management_conf",
         "coldfusion::configure"
       ],
       "calculated": false,
