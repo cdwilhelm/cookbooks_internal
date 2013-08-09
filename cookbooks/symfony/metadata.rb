@@ -37,6 +37,18 @@ attribute "symfony/redis/password",
     :required     => "optional",
     :recipes      => [ "symfony::redis_credentials" ]
 
+attribute "amazon/key",
+    :display_name => "amazon key",
+    :description  => "amazon key",
+    :required     => "optional",
+    :recipes      => [ "symfony::redis_credentials", "symfony::add_vhost" ]
+
+attribute "amazon/secret",
+    :display_name => "amazon secret",
+    :description  => "amazon secret",
+    :required     => "optional",
+    :recipes      => [ "symfony::redis_credentials", "symfony::add_vhost" ]
+
 attribute "repo/default/credential",
   :display_name => "Account credential",
   :description =>

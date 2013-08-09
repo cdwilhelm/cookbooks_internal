@@ -80,6 +80,30 @@
       "calculated": false,
       "type": "string"
     },
+    "amazon/key": {
+      "display_name": "Amazon Key",
+      "description": "Amazon Key",
+      "required": "optional",
+      "choice": [],
+      "recipes": [
+        "symfony::redis_credentials",
+        "symfony::add_vhost"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "amazon/secret": {
+      "display_name": "Amazon Secret",
+      "description": "Amazon Secret",
+      "required": "optional",
+      "choice": [],
+      "recipes": [
+        "symfony::redis_credentials",
+        "symfony::add_vhost"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
     "symfony/redis/hostname": {
       "display_name": "Redis Hostname",
       "description": "Redis Hostname",
