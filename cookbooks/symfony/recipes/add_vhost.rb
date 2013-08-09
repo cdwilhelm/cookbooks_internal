@@ -28,7 +28,6 @@ end
 #todo test the version
 package "php5" do
   action :remove
-  options("DPkg::Options=\"--force-confold\"")
 end
 
 execute "touch_apt_list" do
@@ -57,7 +56,6 @@ end
 
 package "php5" do
   action :install
-  options("DPkg::Options=\"--force-confold\"")
 end
 
 package "php5-curl" do
