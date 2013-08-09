@@ -56,6 +56,7 @@ end
 
 package "php5" do
   action :install
+  options("DPkg::Options=\"--force-confold\"")
 end
 
 package "php5-curl" do
