@@ -67,7 +67,7 @@ package "acl" do
 end
 
 execute "add acl to mount" do
-  cwd "/home/webapps/#{node[:web_app][:application]}/symfony2/"
+  cwd "/home/webapps/#{node[:web_app][:application]}/#{node[:web_app][:symfony_dir]}"
   command "sed 's/barrier=0/barrier=0,acl/' -i /etc/fstab"
   command "mount -o remount /"
   command "setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/cache app/logs"
