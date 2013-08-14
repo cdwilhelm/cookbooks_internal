@@ -111,8 +111,7 @@ end
 
 execute "composer_install" do
   cwd "/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}/"
-  command "rm composer.lock"
-  command "php composer.phar install"
+  command "php composer.phar install  --optimize-autoloader"
   only_if { ::File.exists?("/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}/composer.phar") }
   action :run
 end
