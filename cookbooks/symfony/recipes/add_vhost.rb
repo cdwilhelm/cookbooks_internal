@@ -77,7 +77,7 @@ execute "add acl to mount" do
   action :run
 end
 
-package "lib-icu" do
+package "php5-intl" do
   action :upgrade
 end
 
