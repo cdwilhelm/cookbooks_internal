@@ -70,10 +70,10 @@ execute "add acl to mount" do
   cwd "/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}"
   command "sed 's/barrier=0/barrier=0,acl/' -i /etc/fstab"
   command "mount -o remount /"
-  command "mkdir -p app/cache"
-  command "mkdir -p app/logs"
-  command "setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}/app/cache /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}/app/logs"
-  command "setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}/app/cache /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}/app/logs"
+  command "mkdir -p /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}app/cache"
+  command "mkdir -p /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}app/logs"
+  command "setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}app/cache /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}app/logs"
+  command "setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}app/cache /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}app/logs"
   action :run
 end
 
