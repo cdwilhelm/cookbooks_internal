@@ -77,6 +77,10 @@ execute "add acl to mount" do
   action :run
 end
 
+package "lib-icu" do
+  action :upgrade
+end
+
 package "default-jre" do
   action :install
 end
