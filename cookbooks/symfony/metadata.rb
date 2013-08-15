@@ -14,6 +14,7 @@ depends "app_php"
 recipe "symfony::install_apc", "Installs php APC"
 recipe "symfony::add_vhost", "Adds a new vhost and clones repo"
 recipe "symfony::update_code", "Syncs repository"
+recipe "symfony::update_vendors", "Runs vendor update via composer"
 recipe "symfony::configure", "Configures configurations"
 recipe "symfony::redis_credentials", "Adds special CF Redis credentials"
 recipe "symfony::clear_cache", "clears cache and resets permissions for symfony"
@@ -36,6 +37,12 @@ attribute "symfony/redis/password",
     :description  => "redis password",
     :required     => "optional",
     :recipes      => [ "symfony::redis_credentials" ]
+
+attribute "composer/arguments",
+    :display_name => "Composer Arguments",
+    :description  => "Optional arguments to composer.phar update",
+    :required     => "optional",
+    :recipes      => [ "symfony::update_vendors" ]
 
 attribute "amazon/key",
     :display_name => "amazon key",

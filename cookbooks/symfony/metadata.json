@@ -54,6 +54,16 @@
       "calculated": false,
       "type": "string"
     },
+    "composer/arguments": {
+      "display_name": "optional arguments for composer.phar update",
+      "description": "Arguments to composer.phar update on specified vhost",
+      "required": "optional",
+      "recipes": [
+        "symfony::update_vendors"
+      ],
+      "calculated": false,
+      "type": "string"
+    },
     "web_app_config": {
       "display_name": "Application config json string",
       "description": "Application config json string",
@@ -136,6 +146,7 @@
     "symfony::configure": "Configures configurations",
     "symfony::init_submodules": "does submodule initilization for symfony",
     "symfony::redis_credentials": "adds redis yml",
+    "symfony::update_vendors": "run composer updates (with optional arguments)",
     "symfony::install_apc": "installs apc for php"
   },
   "version": "0.0.1"
