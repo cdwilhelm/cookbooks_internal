@@ -64,7 +64,7 @@ attribute "repo/default/credential",
     " required for Git and Rsync but may be optional for other providers." +
     " Example: cred:RACKSPACE_AUTH_KEY",
   :required => "recommended",
-  :recipes => ["repo::default"]
+  :recipes => ["repo::default","symfony::update_vendors"]
 
 attribute "repo/default/ssh_host_key",
   :display_name => "Known hosts ssh key",
@@ -75,4 +75,4 @@ attribute "repo/default/ssh_host_key",
     " Use this input if you want to improve security" +
     " and for MiTM attacks prevention. Example: cred:SSH_KNOWN_HOST_KEY.",
   :required => "optional",
-  :recipes => ["repo::default"]
+  :recipes => ["repo::default","symfony::update_vendors"]

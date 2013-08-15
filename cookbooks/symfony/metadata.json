@@ -32,6 +32,7 @@
       "required": "recommended",
       "recipes": [
         "symfony::add_vhost",
+        "symfony::update_vendor",
         "symfony::update_code"
       ],
       "choice": [
@@ -46,6 +47,7 @@
       "required": "optional",
       "recipes": [
         "symfony::add_vhost",
+        "symfony::update_vendor",
         "symfony::update_code"
       ],
       "choice": [
@@ -71,6 +73,7 @@
       "choice": [],
       "recipes": [
         "symfony::add_vhost",
+        "symfony::update_vendors",
         "symfony::update_code"
       ],
       "calculated": false,
