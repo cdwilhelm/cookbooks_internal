@@ -16,7 +16,7 @@ git "/home/webapps/#{node[:web_app][:application]}" do
   action :sync
 end
 
-template "/home/webapps/#{node[:web_app][:application]}/symfony2/app/config/parameters.yml" do
+template "/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}app/config/parameters.yml" do
   source "parameters.yml.erb"
   mode "0644"
   variables(
@@ -29,19 +29,19 @@ template "/home/webapps/#{node[:web_app][:application]}/symfony2/app/config/para
 end
 
 execute "composer_install" do
-  cwd "/home/webapps/#{node[:web_app][:application]}/symfony2/"
+  cwd "/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}"
   command "rm composer.lock"
   command "php composer.phar install --prefer-dist --dev"
-  only_if { ::File.exists?("/home/webapps/#{node[:web_app][:application]}/symfony2/composer.phar") }
+  only_if { ::File.exists?("/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}composer.phar") }
   action :run
 end
 
 execute "clear_cache" do
-  cwd "/home/webapps/#{node[:web_app][:application]}/symfony2/"
+  cwd "/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}"
   command "app/console cache:clear --env=prod"
   command "app/console assets:install --env=prod"
   command "app/console assetic:dump --env=prod"
-  only_if { ::File.exists?("/home/webapps/#{node[:web_app][:application]}/symfony2/app/console") }
+  only_if { ::File.exists?("/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}app/console") }
   action :run
 end
 
