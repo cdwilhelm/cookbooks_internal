@@ -27,6 +27,13 @@ template "/usr/lib/python2.7/celeryconfig.py" do
   )
 end
 
+directory "/var/log/celery" do
+  owner "root"
+  group "root"
+  mode 0755
+  action :create
+end
+
 directory "/home/webapps/celery" do
   owner "root"
   group "root"
