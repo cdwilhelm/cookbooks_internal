@@ -49,8 +49,10 @@
   },
   "recipes": {
     "celery::default": "Installs celery and amqp",
-    "celery::start_celery": "Starts celery daemon",
-    "celery::stop_celery": "Stops celery daemon"
+    "celery::start_celery": "Starts celery daemon (depricated)",
+    "celery::start_worker": "Starts celery daemon",
+    "celery::stop_worker": "Starts celery daemon",
+    "celery::stop_celery": "Stops celery daemon (depricated)"
   },
   "version": "0.0.1"
 }

@@ -1,5 +1,5 @@
 rightscale_marker :begin
-ruby_block "start celery" do
+ruby_block "stop celery" do
   block do
     system "kill `cat /var/run/celery.pid`"
   end

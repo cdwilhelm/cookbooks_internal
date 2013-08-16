@@ -19,39 +19,44 @@ ruby_block "easy_install -U celery-with-redis" do
   end
 end
 
-log "===> Installing amqp"
-ruby_block "rabbitmq-c" do
-  block do
-    system "git clone git://github.com/alanxz/rabbitmq-c.git"
-  end
-  not_if {File.exists?('/rabbitmq-c')}
-end
-
-ruby_block "rabbitmq-c" do
-  block do
-    system "cd rabbitmq-c"
-  # Enable and update the codegen git submodule
-    system "git submodule init"
-    system "git submodule update"
-    system "autoreconf -i && ./configure && make && make install"
-  end
-  not_if {File.exists?('/rabbitmq-c/install-sh')}
-end
-
-ruby_block "AMQP" do
-  block do
-    system "pecl install AMQP"
-    system "echo 'extension=amqp.so' >> /etc/php.ini"
-  end
-  not_if "grep /etc/php.ini amqp.so"
-end
-
 template "/usr/lib/python2.7/celeryconfig.py" do
   source "celeryconfig.py.erb"
   variables(
     :redis_password => node[:celery][:redis_password],
     :redis_hostname => node[:celery][:redis_hostname]
   )
+end
+
+directory "/home/webapps/celery" do
+  owner "root"
+  group "root"
+  mode 0755
+  action :create
+end
+
+cookbook_file "/etc/default/celeryd" do
+  source "celeryd.conf"
+  mode 0644
+  owner "root"
+  group "root"
+end
+
+cookbook_file "/etc/init.d/celeryd" do
+  source "celeryd"
+  mode 0755
+  owner "root"
+  group "root"
+end
+
+cookbook_file "/home/webapps/celery/visit.py" do
+  source "visit.py"
+  mode 0755
+  owner "root"
+  group "root"
+end
+
+service "celeryd" do
+  action :start
 end
 
 rightscale_marker :end

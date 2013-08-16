@@ -7,8 +7,10 @@ version          "0.0.1"
 depends "sys"
 
 recipe "celery::default", "Installs and configures Celery and AMQP"
-recipe "celery::start_celery", "Starts celery daemon"
-recipe "cllery::stop_celery", "Stopscelery daemon"
+recipe "celery::stop_worker", "Stops celery daemon"
+recipe "celery::start_worker", "Starts celery daemon"
+recipe "celery::start_celery", "Depricated"
+recipe "cllery::stop_celery", "Depricated"
 
 attribute "celery/redis_hostname",
     :display_name => "Redis Hostname",
