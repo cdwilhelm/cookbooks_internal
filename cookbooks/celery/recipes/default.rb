@@ -55,6 +55,12 @@ cookbook_file "/home/webapps/celery/visit.py" do
   group "root"
 end
 
+user "celery" do
+  gid "celery"
+  system true
+  action :create
+end
+
 service "celeryd" do
   action :start
 end
