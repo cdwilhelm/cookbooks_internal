@@ -29,8 +29,8 @@ end
 
 directory "/var/log/celery" do
   owner "root"
-  group "root"
-  mode 0755
+  group "celery"
+  mode 0775
   action :create
 end
 
