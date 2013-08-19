@@ -19,14 +19,6 @@ ruby_block "easy_install -U celery-with-redis" do
   end
 end
 
-template "/usr/lib/python2.7/celeryconfig.py" do
-  source "celeryconfig.py.erb"
-  variables(
-    :redis_password => node[:celery][:redis_password],
-    :redis_hostname => node[:celery][:redis_hostname]
-  )
-end
-
 directory "/var/run/celery" do
   owner "root"
   group "celery"
@@ -46,6 +38,14 @@ directory "/home/webapps/celery" do
   group "root"
   mode 0755
   action :create
+end
+
+template "/home/webapps/celery/celeryconfig.py" do
+  source "celeryconfig.py.erb"
+  variables(
+    :redis_password => node[:celery][:redis_password],
+    :redis_hostname => node[:celery][:redis_hostname]
+  )
 end
 
 cookbook_file "/etc/default/celeryd" do
