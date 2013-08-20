@@ -19,6 +19,16 @@ ruby_block "easy_install -U celery-with-redis" do
   end
 end
 
+group "celery" do
+  group_name "celery"
+  action :create
+end
+
+user "celery" do
+  gid "celery"
+  action :create
+end
+
 directory "/var/run/celery" do
   owner "root"
   group "celery"
@@ -67,16 +77,6 @@ cookbook_file "/home/webapps/celery/visit.py" do
   mode 0755
   owner "root"
   group "root"
-end
-
-group "celery" do
-  group_name "celery"
-  action :create
-end
-
-user "celery" do
-  gid "celery"
-  action :create
 end
 
 service "celeryd" do
