@@ -105,6 +105,7 @@ template "/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony
     :hostname => node[:web_app][:database][:hostname],
     :username => node[:web_app][:database][:username],
     :password => node[:web_app][:database][:password],
+    :mailer_hostname => node[:coldfusion][:mail][:server],
     :redis_hostname => node[:symfony][:redis][:hostname],
     :aws_key => node[:amazon][:key],
     :aws_secret => node[:amazon][:secret],

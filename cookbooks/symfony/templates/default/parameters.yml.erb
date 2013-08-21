@@ -6,11 +6,11 @@ parameters:
     database_user: <%= @username %>
     database_password: <%= @password %>
     mailer_transport: smtp
-    mailer_host: localhost
+    mailer_host: <%= @mailer_hostname %>
     mailer_user: null
     mailer_password: null
-    mailer_delivery_address: null
-    mailer_debug_address: ~
+    mailer_delivery_address: alert.techsupport@schoolspring.com
+    mailer_debug_address: alert.techsupport@schoolspring.com
     locale: en
     secret: 5383d54436cab278353310e8faf9e8447
     database_path: null
