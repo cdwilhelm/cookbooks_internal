@@ -23,3 +23,8 @@ parameters:
     aws_secret_key: <%= @aws_secret %>
     local_files_path: <%= @file_path %>
     file.directory: %kernel.web_dir%
+    cdn_url_prod_ssl: https://schoolspring-assets.s3-website-us-east-1.amazonaws.com/
+    cdn_url_prod: http://schoolspring-assets.s3-website-us-east-1.amazonaws.com/
+    cdn_url_dev: https://schoolspring-assets.s3-website-us-east-1.amazonaws.com/dev/
+    s3_assets_bucket: schoolspring-assets
+    cybernox_amazon_web_services.enable_extensions: [ 's3' ]
