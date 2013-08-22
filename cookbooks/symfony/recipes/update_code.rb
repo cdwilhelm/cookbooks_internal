@@ -38,8 +38,6 @@ end
 execute "clear_cache" do
   cwd "/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}"
   command "app/console cache:clear --env=prod"
-  command "app/console assets:install --env=prod"
-  command "app/console assetic:dump --env=prod"
   only_if { ::File.exists?("/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}app/console") }
   action :run
 end
