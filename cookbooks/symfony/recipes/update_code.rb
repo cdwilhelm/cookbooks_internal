@@ -30,6 +30,7 @@ end
 
 execute "composer_install" do
   cwd "/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}"
+  command "chmod -R 777 /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}/vendors"
   command "php composer.phar install"
   only_if { ::File.exists?("/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}composer.phar") }
   action :run
