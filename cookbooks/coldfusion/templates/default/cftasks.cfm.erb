@@ -249,3 +249,18 @@ adminObj = createObject("component","CFIDE.adminapi.administrator").login("<%= @
     file = "workflowreminder.html"
     url = "http://tasks.schoolspring.com/workflowreminder.cfm"
     username = "<%= @username %>">
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Check Time Zone"
+    interval = "3600"
+    password = "<%= @password %>"
+    publish = "no"
+    requestTimeOut = "1200"
+    resolveURL = "no"
+    startDate = "1/9/10"
+    startTime = "12:02 AM"
+    endTime = "11:59 PM"
+    url = "http://tasks.schoolspring.com/checktime.cfm"
+    username = "<%= @username %>">
