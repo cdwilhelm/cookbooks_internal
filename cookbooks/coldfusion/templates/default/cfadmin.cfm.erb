@@ -104,7 +104,22 @@ debugObj.setLogProperty('logMailSentMessages',1);
     requestTimeOut = "1200"
     resolveURL = "no"
     startDate = "1/9/10"
-    startTime = "12:00 AM"
+    startTime = "12:01 AM"
     endTime = "11:59 PM"
     url = "http://localhost:8000/tasks2/mailspoolcheck.cfm"
+    username = "<%= @username %>">
+
+<cfschedule 
+    action = "update"
+    operation = "HTTPRequest"
+    task = "Check Time Zone"
+    interval = "3600"
+    password = "<%= @password %>"
+    publish = "no"
+    requestTimeOut = "1200"
+    resolveURL = "no"
+    startDate = "1/9/10"
+    startTime = "12:02 AM"
+    endTime = "11:59 PM"
+    url = "http://localhost:8000/tasks2/checktime.cfm"
     username = "<%= @username %>">
