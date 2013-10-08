@@ -8,7 +8,10 @@
   <Directory /home/webapps/<%= @application %>/<%= @web_root %>>
     Options Indexes FollowSymLinks MultiViews
     AllowOverride All
-    Order allow,deny
-    allow from all
+    AuthUserFile /home/webapps/ssv2_dev/.htpasswd
+    AuthName "Please enter the dev ID and password"
+    AuthType Basic
+    require valid-user
+    order deny,allow
   </Directory>
 </VirtualHost>
