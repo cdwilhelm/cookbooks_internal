@@ -26,8 +26,8 @@ cookbook_file "#{node[:coldfusion][:jar_dir]}/JLinkPointTxn.jar" do
   group "root"
 end
 
-cookbook_file "#{node[:coldfusion][:jar_dir]}/twitter4j-core-2.1.5-SNAPSHOT.jar" do
-  source "twitter4j-core-2.1.5-SNAPSHOT.jar"
+cookbook_file "#{node[:coldfusion][:jar_dir]}/twitter4j-core-3.0.5.jar" do
+  source "twitter4j-core-3.0.5.jar"
   mode 0755
   owner "root"
   group "root"
