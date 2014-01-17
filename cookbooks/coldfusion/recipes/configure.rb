@@ -31,12 +31,6 @@ end
 
 ruby_block "run admin api" do
   block do
-    system "while [ `/opt/jrun4/bin/cfstat | grep \"Could not\" | wc -l`  -gt 0 ]
-do
-        echo -n '.';
-        sleep 1;
-done
-sleep 5;"
     system "curl localhost:8000/CFIDE/cfadmin.cfm"
   end
 end
