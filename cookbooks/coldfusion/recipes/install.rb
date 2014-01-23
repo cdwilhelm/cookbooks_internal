@@ -75,7 +75,4 @@ bash "permissions" do
   EOF
 end
 
-
-include_recipe "coldfusion::start"
-
 rightscale_marker :end
