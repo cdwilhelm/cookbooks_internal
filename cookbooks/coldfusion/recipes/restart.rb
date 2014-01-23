@@ -2,15 +2,9 @@ rightscale_marker :begin
 
 File.unlink '/tmp/cf.log' if File.exists?('/tmp/cf.log');
 
-ruby_block "stop cf" do
+ruby_block "restart cf" do
   block do
-    system "/opt/jrun4/bin/coldfusion stop"
-  end
-end
-
-ruby_block "start cf" do
-  block do
-    system "/opt/jrun4/bin/coldfusion start"
+    system "/opt/jrun4/bin/coldfusion restart"
   end
 end
 
@@ -18,7 +12,7 @@ x = 0
 until File.exists?('/opt/jrun4/logs/cfserver.log') && open('/opt/jrun4/logs/cfserver.log') { |f| f.grep(/Server coldfusion ready/) }
   x += 1
   sleep(1)
-  if x == 300
+  if x == 500
     break
   end
 end
