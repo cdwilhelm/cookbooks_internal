@@ -1,6 +1,6 @@
 rightscale_marker :begin
 
-File.unlink '/tmp/cf.log' if File.exists?('/tmp/cf.log');
+File.unlink '/opt/jrun4/logs/cfserver.log' if File.exists?('/opt/jrun4/logs/cfserver.log');
 
 ruby_block "restart cf" do
   block do

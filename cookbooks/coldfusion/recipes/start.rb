@@ -1,5 +1,7 @@
 rightscale_marker :begin
 
+File.unlink '/tmp/cf.log' if File.exists?('/tmp/cf.log');
+
 ruby_block "start cf" do
   block do
     system "/opt/jrun4/bin/coldfusion start"
