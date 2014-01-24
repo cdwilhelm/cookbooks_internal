@@ -1,5 +1,11 @@
 rightscale_marker :begin
 
+bash "permissions" do
+  code <<-EOF
+   sed -i "s/<var name='postParametersLimit'><number>100.0/<var name='postParametersLimit'><number>500.0/g" /opt/jrun4/lib/neo-runtime.xml
+  EOF
+end
+
 template "/home/webapps/#{node[:coldfusion][:application]}/www/CFIDE/cfadmin.cfm" do
   source "cfadmin.cfm.erb"
   mode 00644
