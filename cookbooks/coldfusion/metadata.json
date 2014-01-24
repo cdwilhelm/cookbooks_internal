@@ -267,5 +267,5 @@
     "coldfusion::stop": "Stops Coldfusion",
     "coldfusion::restart": "Restarts Coldfusion"
   },
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
