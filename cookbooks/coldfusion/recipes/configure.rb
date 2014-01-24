@@ -1,6 +1,6 @@
 rightscale_marker :begin
 
-ruby_block "permissions" do
+ruby_block "postparam" do
   block do
     system "sed -i \"s/<var name='postParametersLimit'><number>100.0/<var name='postParametersLimit'><number>500.0/g\" /opt/jrun4/lib/neo-runtime.xml"
   end 
