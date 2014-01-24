@@ -1,5 +1,11 @@
 rightscale_marker :begin
 
+cookbook_file "/opt/jrun4/lib/neo-runtime.xml" do
+ source 'neo-runtime.xml'
+ owner 'root'
+ group 'root'
+ mode 00644
+end
 ruby_block "postparam" do
   block do
     system "sed -i \"s/<var name='postParametersLimit'><number>100.0/<var name='postParametersLimit'><number>500.0/g\" /opt/jrun4/lib/neo-runtime.xml"
