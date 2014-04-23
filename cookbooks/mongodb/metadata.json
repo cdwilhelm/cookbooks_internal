@@ -1,0 +1,33 @@
+{
+  "name": "mongodb",
+  "description": "MongoDB recipes",
+  "long_description": "",
+  "maintainer": "SchoolSpring, Inc.",
+  "maintainer_email": "devteam@schoolspring.com",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+    "sys": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "mongodb::default": "Installs MongoDB",
+    "mongodb::start": "Starts mongodb daemon",
+    "mongodb::stop": "Starts mongodb daemon",
+  },
+  "version": "0.0.1"
+}
