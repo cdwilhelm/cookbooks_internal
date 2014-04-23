@@ -1,6 +1,6 @@
 rightscale_marker :begin
 
-service "mongodb" do
+service "mongod" do
   action :stop
 end
 
