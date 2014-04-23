@@ -27,7 +27,7 @@
   "recipes": {
     "mongodb::default": "Installs MongoDB",
     "mongodb::start": "Starts mongodb daemon",
-    "mongodb::stop": "Starts mongodb daemon",
+    "mongodb::stop": "Starts mongodb daemon"
   },
   "version": "0.0.1"
 }
