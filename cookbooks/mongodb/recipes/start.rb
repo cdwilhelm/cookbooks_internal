@@ -1,5 +1,5 @@
 rightscale_marker :begin
-service "celeryd" do
+service "mongodb" do
   action :start
 end
 rightscale_marker :end
