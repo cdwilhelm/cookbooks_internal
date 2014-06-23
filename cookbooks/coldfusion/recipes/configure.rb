@@ -1,16 +1,6 @@
 rightscale_marker :begin
 
-cookbook_file "/opt/jrun4/lib/neo-runtime.xml" do
- source 'neo-runtime.xml'
- owner 'root'
- group 'root'
- mode 00644
-end
-ruby_block "postparam" do
-  block do
-    system "sed -i \"s/<var name='postParametersLimit'><number>100.0/<var name='postParametersLimit'><number>500.0/g\" /opt/jrun4/lib/neo-runtime.xml"
-  end 
-end
+
 
 template "/home/webapps/#{node[:coldfusion][:application]}/www/CFIDE/cfadmin.cfm" do
   source "cfadmin.cfm.erb"
@@ -45,6 +35,18 @@ ruby_block "run admin api" do
   block do
     system "curl localhost:8000/CFIDE/cfadmin.cfm"
   end
+end
+
+cookbook_file "/opt/jrun4/lib/neo-runtime.xml" do
+ source 'neo-runtime.xml'
+ owner 'root'
+ group 'root'
+ mode 00644
+end
+ruby_block "postparam" do
+  block do
+    system "sed -i \"s/<var name='postParametersLimit'><number>100.0/<var name='postParametersLimit'><number>500.0/g\" /opt/jrun4/lib/neo-runtime.xml"
+  end 
 end
 
 rightscale_marker :end
