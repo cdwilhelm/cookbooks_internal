@@ -39,8 +39,8 @@ end
 
 cookbook_file "/opt/jrun4/lib/neo-runtime.xml" do
  source 'neo-runtime.xml'
- owner 'root'
- group 'root'
+ owner 'nobody'
+ group 'nogroup'
  mode 00644
 end
 ruby_block "postparam" do
