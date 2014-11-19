@@ -2,7 +2,7 @@ maintainer       "SchoolSpring.com"
 maintainer_email "devteam@schoolspring.com"
 license          "Apache 2.0"
 description      "Postfix Recipes" 
-version          "0.0.1"
+version          "0.0.2"
 
 depends "repo"
 depends "app"
