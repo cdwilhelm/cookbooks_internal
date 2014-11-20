@@ -7,7 +7,7 @@ when "centos|redhat"
  packages=["java-1.7.0-openjdk"]
 when "ubuntu"
  packages=["openjdk-7-jre"]
-done
+end
 
 packages.each do |p|
  package p
