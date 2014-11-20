@@ -2,7 +2,7 @@ maintainer       "School Spring, Inc."
 maintainer_email "devteam@schoolspring.com"
 license          "Apache 2.0"
 description      "ColdFusion Recipes" 
-version          "0.0.4"
+version          "0.0.5"
 
 depends "rightscale"
 depends "block_device"
