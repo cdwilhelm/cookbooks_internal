@@ -3,6 +3,8 @@ rightscale_marker :begin
 require 'rubygems' 
 require 'right_aws' 
 
+include_recipe "coldfusion::install_java"
+
 ruby_block "pull down coldfusion bin from s3" do
   s3= RightAws::S3Interface.new(node[:coldfusion][:amazon][:aws_key], node[:coldfusion][:amazon][:aws_secret])
   localfile = File.new("/tmp/#{node[:coldfusion][:s3][:file_prefix]}.bin" , File::CREAT|File::RDWR)

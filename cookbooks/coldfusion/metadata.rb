@@ -20,6 +20,7 @@ recipe "coldfusion::wsconfig", "runs Wsconfig"
 recipe "coldfusion::start", "Starts Coldfusion"
 recipe "coldfusion::stop", "Stops Coldfusion"
 recipe "coldfusion::restart", "Restarts Coldfusion"
+recipe "coldfusion::install_java", "installs java 1.7"
 
 attribute "coldfusion/mail/server",
     :display_name => "mailserver hostname",
