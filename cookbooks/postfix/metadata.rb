@@ -38,7 +38,7 @@ attribute "postfix/deploy_dir",
     :description  => 'Path of where to deploy the scripts',
     :required     => "optional",
     :default      => "/usr/local/share/mailscripts",
-    :recipes      => [ "postfix::clone_mailscripts" ]
+    :recipes      => [ "postfix::clone_mailscripts" ,"postfix::configure"]
 
 attribute "postfix/gc_username",
     :display_name => "Globalclassroom.com username",
@@ -81,4 +81,5 @@ attribute "postfix/users",
     :description  => 'A well formed JSON array: {"username":{"option_name":"option_value"},"username2"...}',
     :required     => "required",
     :recipes      => [ "postfix::add_user" ]
+
 
