@@ -48,7 +48,13 @@ attribute "coldfusion/s3/dl_file",
 
 attribute "coldfusion/s3/hotfix_file",
     :display_name => "S3 Hot Fix File Name",
-    :description  => "S3 coldfusion hostfix file",
+    :description  => "S3 coldfusion hotfix file",
+    :required     => "required",
+    :recipes      => [ "coldfusion::install" ]
+
+attribute "coldfusion/s3/ide_hotfix_file",
+    :display_name => "S3 IDE Hot Fix File Name",
+    :description  => "S3 coldfusion IDE hotfix file",
     :required     => "required",
     :recipes      => [ "coldfusion::install" ]
 

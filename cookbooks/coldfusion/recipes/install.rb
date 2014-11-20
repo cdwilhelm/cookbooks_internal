@@ -57,6 +57,16 @@ bash "run cf installer" do
   EOH
 end
 
+ruby_block "pull down coldfusion bin from s3" do
+  s3= RightAws::S3Interface.new(node[:coldfusion][:amazon][:aws_key], node[:coldfusion][:amazon][:aws_secret])
+  localfile = File.new("/tmp/CFIDE-902.zip" , File::CREAT|File::RDWR)
+  rhdr = s3.get(node[:coldfusion][:s3][:dl_bucket], node[:coldfusion][:s3][:ide_hotfix_file]) do |chunk|
+    localfile.write(chunk)
+  end
+  localfile.close
+  not_if { File.exists?("/tmp/CF902.zip") }
+end
+
 bash "run cf installer" do
   cwd "/tmp"
   code <<-EOH
