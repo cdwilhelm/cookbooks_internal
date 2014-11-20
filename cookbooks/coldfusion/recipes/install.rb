@@ -53,7 +53,7 @@ end
 bash "run cf installer" do
   cwd "/tmp"
   code <<-EOH
-    unzip -j CF902.zip CF902/lib/updates/hf* -d /opt/jrun4/lib/updates/.
+    unzip -j CF902.zip CF902/lib/updates/hf* -d /opt/jrun4/lib/updates
   EOH
 end
 
@@ -70,7 +70,7 @@ end
 bash "run cf installer" do
   cwd "/tmp"
   code <<-EOH
-    unzip CFIDE-902.zip -d /home/webapps/ssv2/www
+    unzip -o CFIDE-902.zip -d /home/webapps/ssv2/www
     touch /tmp/ide-update-9.0.2-07
   EOH
   not_if do
