@@ -81,3 +81,4 @@ attribute "postfix/users",
     :description  => 'A well formed JSON array: {"username":{"option_name":"option_value"},"username2"...}',
     :required     => "required",
     :recipes      => [ "postfix::add_user" ]
+
