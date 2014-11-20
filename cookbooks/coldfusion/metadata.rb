@@ -46,6 +46,12 @@ attribute "coldfusion/s3/dl_file",
     :required     => "required",
     :recipes      => [ "coldfusion::install" ]
 
+attribute "coldfusion/s3/hotfix_file",
+    :display_name => "S3 Hot Fix File Name",
+    :description  => "S3 coldfusion hostfix file",
+    :required     => "required",
+    :recipes      => [ "coldfusion::install" ]
+
 attribute "coldfusion/amazon/aws_key",
     :display_name => "Amazon AWS key id",
     :description  => "Amazon AWS key id",
