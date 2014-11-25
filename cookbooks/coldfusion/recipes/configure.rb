@@ -48,5 +48,9 @@ ruby_block "postparam" do
     system "sed -i \"s/<var name='postParametersLimit'><number>100.0/<var name='postParametersLimit'><number>500.0/g\" /opt/jrun4/lib/neo-runtime.xml"
   end 
 end
-
+ruby_block "jre" do
+  block do
+    system "sed -i \"s/#java.home=.*$/java.home=\/usr\/lib/jvm\/java-7-openjdk-amd64\/jre" /opt/jrun4/bin/jvm.config"
+  end 
+end
 rightscale_marker :end
