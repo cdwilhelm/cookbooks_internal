@@ -50,7 +50,7 @@ ruby_block "postparam" do
 end
 ruby_block "jre" do
   block do
-    system "sed -ier 's/^java.home=.*$/java.home=\/usr\/lib\/jvm\/java-7-openjdk-amd64\/jre/' /opt/jrun4/bin/jvm.config"
+    system 'sed -i "s/^java.home=.*$/java.home=\/usr\/lib\/jvm\/java-7-openjdk-amd64\/jre/" /opt/jrun4/bin/jvm.config'
   end 
 end
 rightscale_marker :end
