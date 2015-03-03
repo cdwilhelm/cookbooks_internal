@@ -70,10 +70,10 @@ execute "add acl to mount" do
   cwd "/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}"
   command "sed 's/barrier=0/barrier=0,acl/' -i /etc/fstab"
   command "mount -o remount /"
-  command "mkdir -p /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}/app/cache"
-  command "mkdir -p /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}/app/logs"
-  command "setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}/app/cache /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}/app/logs"
-  command "setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}/app/cache /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}/app/logs"
+  command "mkdir -p /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}app/cache"
+  command "mkdir -p /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}app/logs"
+  command "setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}app/cache /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}app/logs"
+  command "setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}app/cache /home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}app/logs"
   action :run
 end
 
@@ -98,7 +98,7 @@ execute "node_less" do
   action :run
 end
 
-template "/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}/app/config/parameters.yml" do
+template "/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}app/config/parameters.yml" do
   source "parameters.yml.erb"
   mode "0644"
   variables(
@@ -117,7 +117,7 @@ end
 execute "composer_install" do
   cwd "/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}/"
   command "php composer.phar install  --optimize-autoloader"
-  only_if { ::File.exists?("/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}/composer.phar") }
+  only_if { ::File.exists?("/home/webapps/#{node[:web_app][:application]}#{node[:web_app][:symfony_dir]}composer.phar") }
   action :run
 end
 
