@@ -92,7 +92,7 @@ attribute "coldfusion/application",
     :display_name => "Application name (ssv2)",
     :description  => "Application name (ssv2)",
     :required     => "required",
-    :recipes      => [ "coldfusion::redis_credentials", "coldfusion::install", "coldfusion::configure" ]
+    :recipes      => [ "coldfusion::redis_credentials", "coldfusion::install", "coldfusion::configure", "coldfusion::management_conf" ]
 
 attribute "coldfusion/redis/hostname",
     :display_name => "redis hostname",
