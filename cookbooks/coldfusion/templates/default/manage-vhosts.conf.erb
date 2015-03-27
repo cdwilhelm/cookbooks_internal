@@ -8,8 +8,8 @@
 # Managed by RightScale
 # DO NOT EDIT BY HAND
 #
-
-<VirtualHost *:80>
+Listen 8000
+<VirtualHost *:80 *:8000>
   ServerName manage.schoolspring.com
   ServerAlias localhost
   DirectoryIndex index.cfm index.php
@@ -113,109 +113,3 @@
   </Directory>
 
 </VirtualHost>
-
-<VirtualHost *:8000>
-  ServerName manage.schoolspring.com
-  ServerAlias localhost
-  DirectoryIndex index.cfm index.php
-  DocumentRoot <%= @application %>/www
-  <DirectoryMatch  /\.git/|/\.svn/ >
-    Deny from all
-  </DirectoryMatch>
-
-  <Directory "<%= @application %>/symfony/lib/vendor/symfony/data/web/sf">
-    AllowOverride All
-    Allow from All
-  </Directory>
-  Alias /sf <%= @application %>/symfony/lib/vendor/symfony/data/web/sf
-
-  <Directory <%= @application %>/www>
-    Options FollowSymLinks
-    AllowOverride All
-    Order allow,deny
-    Allow from all
-  </Directory>
-
-  RewriteEngine On
-  # Uncomment for rewrite debugging
-  #RewriteLog /var/log/apache2/http_rewrite_log
-  #RewriteLogLevel 9
-
-  # Include Rewrite rules from server config for maintenance mode.
-  # Rewrite rules are not inherited in VirtualHost Directive, so must
-  # explicitly include it here.
-  Include conf.d/maintenance.conf
-
-  # Enable status page for monitoring purposes
-  RewriteCond %{REMOTE_ADDR} ^(127.0.0.1)
-  RewriteRule ^(/server-status) $1 [H=server-status,L]
-
-  # Setup the logs in the appropriate directory
-  CustomLog /var/log/apache2/access_log combined
-  ErrorLog  /var/log/apache2/error_log
-  LogLevel warn
-
-  # Deflate
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/javascript text/css application/x-javascript
-  BrowserMatch ^Mozilla/4 gzip-only-text/html
-  BrowserMatch ^Mozilla/4\.0[678] no-gzip
-  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
-
-  RewriteCond %{REQUEST_URI} .*/ga.js$
-  RewriteRule (.*) %{HTTP:X-Http-Protocol}://www.google-analytics.com/ga.js [R=301,L]
-
-  RewriteMap  lc int:tolower
-  RewriteCond %{IS_SUBREQ} !true
-  RewriteCond %{DOCUMENT_ROOT}%{SCRIPT_FILENAME} !-f
-  RewriteCond %{DOCUMENT_ROOT}%{SCRIPT_FILENAME} !-d
-  RewriteCond %{REQUEST_URI} !^/tasks.*
-  RewriteCond %{REQUEST_URI} !^/CFFileServlet.*
-  RewriteCond %{REQUEST_URI} [A-Z]
-  RewriteRule (.*) ${lc:$1} [R=301,L]
-
-
-</VirtualHost>
-<VirtualHost *:8000>
-  ServerAlias admin.schoolspring.com
-  ServerAdmin webmaster@localhost
-  DocumentRoot <%= @application %>/admin
-  ServerName admin.schoolspring.com
-  DirectoryIndex index.cfm index.php
-  ScriptAlias /cgi-bin/ <%= @application %>/cgi-bin/
-
-  <Directory <%= @application %>/admin/>
-    Options Indexes FollowSymLinks MultiViews
-    AllowOverride All
-    Order allow,deny
-    allow from all
-  </Directory>
-</VirtualHost>
-
-<VirtualHost *:8000>
-  ServerAlias blog.schoolspring.com
-  ServerAdmin webmaster@localhost
-  DocumentRoot <%= @application %>/wordpress
-  ServerName blog.schoolspring.com
-  DirectoryIndex index.php
-  ScriptAlias /cgi-bin/ <%= @application %>/cgi-bin/
-
-  <Directory <%= @application %>/wordpress/>
-    Options Indexes FollowSymLinks MultiViews
-    AllowOverride All
-    Order allow,deny
-    allow from all
-  </Directory>
-</VirtualHost>
-
-<VirtualHost *:8000>
-  ServerName tasks.schoolspring.com
-  ServerAlias tasks.schoolspring.org
-  DocumentRoot "<%= @application %>/tasks"
-  DirectoryIndex index.html
-  <Directory "<%= @application %>/tasks">
-    AllowOverride All
-    Allow from All
-  </Directory>
-
-</VirtualHost>
-
