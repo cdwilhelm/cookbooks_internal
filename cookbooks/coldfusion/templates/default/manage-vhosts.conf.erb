@@ -13,18 +13,18 @@ Listen 8000
   ServerName manage.schoolspring.com
   ServerAlias localhost
   DirectoryIndex index.cfm index.php
-  DocumentRoot <%= @application %>/www
+  DocumentRoot /home/webapps/<%= @application %>/www
   <DirectoryMatch  /\.git/|/\.svn/ >
     Deny from all
   </DirectoryMatch>
 
-  <Directory "<%= @application %>/symfony/lib/vendor/symfony/data/web/sf">
+  <Directory "/home/webapps/<%= @application %>/symfony/lib/vendor/symfony/data/web/sf">
     AllowOverride All
     Allow from All
   </Directory>
-  Alias /sf <%= @application %>/symfony/lib/vendor/symfony/data/web/sf
+  Alias /sf /home/webapps/<%= @application %>/symfony/lib/vendor/symfony/data/web/sf
 
-  <Directory <%= @application %>/www>
+  <Directory /home/webapps/<%= @application %>/www>
     Options FollowSymLinks
     AllowOverride All
     Order allow,deny
@@ -73,12 +73,12 @@ Listen 8000
 <VirtualHost *:80>
   ServerAlias admin.schoolspring.com
   ServerAdmin webmaster@localhost
-  DocumentRoot <%= @application %>/admin
+  DocumentRoot /home/webapps/<%= @application %>/admin
   ServerName admin.schoolspring.com
   DirectoryIndex index.cfm index.php
-  ScriptAlias /cgi-bin/ <%= @application %>/cgi-bin/
+  ScriptAlias /cgi-bin/ /home/webapps/<%= @application %>/cgi-bin/
 
-  <Directory <%= @application %>/admin/>
+  <Directory /home/webapps/<%= @application %>/admin/>
     Options Indexes FollowSymLinks MultiViews
     AllowOverride All
     Order allow,deny
@@ -89,12 +89,12 @@ Listen 8000
 <VirtualHost *:80>
   ServerAlias blog.schoolspring.com
   ServerAdmin webmaster@localhost
-  DocumentRoot <%= @application %>/wordpress
+  DocumentRoot /home/webapps/<%= @application %>/wordpress
   ServerName blog.schoolspring.com
   DirectoryIndex index.php
-  ScriptAlias /cgi-bin/ <%= @application %>/cgi-bin/
+  ScriptAlias /cgi-bin/ /home/webapps/<%= @application %>/cgi-bin/
 
-  <Directory <%= @application %>/wordpress/>
+  <Directory /home/webapps/<%= @application %>/wordpress/>
     Options Indexes FollowSymLinks MultiViews
     AllowOverride All
     Order allow,deny
@@ -105,9 +105,9 @@ Listen 8000
 <VirtualHost *:80>
   ServerName tasks.schoolspring.com
   ServerAlias tasks.schoolspring.org
-  DocumentRoot "<%= @application %>/tasks"
+  DocumentRoot "/home/webapps/<%= @application %>/tasks"
   DirectoryIndex index.html
-  <Directory "<%= @application %>/tasks">
+  <Directory "/home/webapps/<%= @application %>/tasks">
     AllowOverride All
     Allow from All
   </Directory>
