@@ -8,23 +8,23 @@
 # Managed by RightScale
 # DO NOT EDIT BY HAND
 #
-
-<VirtualHost *:80>
+Listen 8000
+<VirtualHost *:80 *:8000>
   ServerName manage.schoolspring.com
   ServerAlias localhost
   DirectoryIndex index.cfm index.php
-  DocumentRoot <%= @application %>/www
+  DocumentRoot /home/webapps/ssv2/www
   <DirectoryMatch  /\.git/|/\.svn/ >
     Deny from all
   </DirectoryMatch>
 
-  <Directory "<%= @application %>/symfony/lib/vendor/symfony/data/web/sf">
+  <Directory "/home/webapps/ssv2/symfony/lib/vendor/symfony/data/web/sf">
     AllowOverride All
     Allow from All
   </Directory>
-  Alias /sf <%= @application %>/symfony/lib/vendor/symfony/data/web/sf
+  Alias /sf /home/webapps/ssv2/symfony/lib/vendor/symfony/data/web/sf
 
-  <Directory <%= @application %>/www>
+  <Directory /home/webapps/ssv2/www>
     Options FollowSymLinks
     AllowOverride All
     Order allow,deny
@@ -73,12 +73,12 @@
 <VirtualHost *:80>
   ServerAlias admin.schoolspring.com
   ServerAdmin webmaster@localhost
-  DocumentRoot <%= @application %>/admin
+  DocumentRoot /home/webapps/ssv2/admin
   ServerName admin.schoolspring.com
   DirectoryIndex index.cfm index.php
-  ScriptAlias /cgi-bin/ <%= @application %>/cgi-bin/
+  ScriptAlias /cgi-bin/ /home/webapps/ssv2/cgi-bin/
 
-  <Directory <%= @application %>/admin/>
+  <Directory /home/webapps/ssv2/admin/>
     Options Indexes FollowSymLinks MultiViews
     AllowOverride All
     Order allow,deny
@@ -89,12 +89,12 @@
 <VirtualHost *:80>
   ServerAlias blog.schoolspring.com
   ServerAdmin webmaster@localhost
-  DocumentRoot <%= @application %>/wordpress
+  DocumentRoot /home/webapps/ssv2/wordpress
   ServerName blog.schoolspring.com
   DirectoryIndex index.php
-  ScriptAlias /cgi-bin/ <%= @application %>/cgi-bin/
+  ScriptAlias /cgi-bin/ /home/webapps/ssv2/cgi-bin/
 
-  <Directory <%= @application %>/wordpress/>
+  <Directory /home/webapps/ssv2/wordpress/>
     Options Indexes FollowSymLinks MultiViews
     AllowOverride All
     Order allow,deny
@@ -105,12 +105,11 @@
 <VirtualHost *:80>
   ServerName tasks.schoolspring.com
   ServerAlias tasks.schoolspring.org
-  DocumentRoot "<%= @application %>/tasks"
+  DocumentRoot "/home/webapps/ssv2/tasks"
   DirectoryIndex index.html
-  <Directory "<%= @application %>/tasks">
+  <Directory "/home/webapps/ssv2/tasks">
     AllowOverride All
     Allow from All
   </Directory>
 
 </VirtualHost>
-

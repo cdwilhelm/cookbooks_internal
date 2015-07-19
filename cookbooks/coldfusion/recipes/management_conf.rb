@@ -4,7 +4,7 @@ template "/etc/apache2/sites-available/#{node[:coldfusion][:application]}.conf" 
   source "manage-vhosts.conf.erb"
   mode 00644
   variables(
-    :applicaiton => "/home/webapps/#{node[:coldfusion][:application]}"
+    :applicaiton => node[:coldfusion][:application]
   )
 end
 

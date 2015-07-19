@@ -2,7 +2,7 @@ maintainer       "School Spring, Inc."
 maintainer_email "devteam@schoolspring.com"
 license          "Apache 2.0"
 description      "ColdFusion Recipes" 
-version          "0.0.4"
+version          "0.1.0"
 
 depends "rightscale"
 depends "block_device"
@@ -16,6 +16,7 @@ recipe "coldfusion::garbage_collect", "Runs garbage collection"
 recipe "coldfusion::add_management_tasks", "Adds tasks for manage"
 recipe "coldfusion::redis_credentials", "Adds special CF Redis credentials"
 recipe "coldfusion::configure", "Runs CFAdmin API settings"
+recipe "coldfusion::management_conf", "Installs vhosts for manage"
 recipe "coldfusion::wsconfig", "runs Wsconfig"
 recipe "coldfusion::start", "Starts Coldfusion"
 recipe "coldfusion::stop", "Stops Coldfusion"
@@ -91,7 +92,7 @@ attribute "coldfusion/application",
     :display_name => "Application name (ssv2)",
     :description  => "Application name (ssv2)",
     :required     => "required",
-    :recipes      => [ "coldfusion::redis_credentials", "coldfusion::install", "coldfusion::configure" ]
+    :recipes      => [ "coldfusion::redis_credentials", "coldfusion::install", "coldfusion::configure", "coldfusion::management_conf" ]
 
 attribute "coldfusion/redis/hostname",
     :display_name => "redis hostname",
